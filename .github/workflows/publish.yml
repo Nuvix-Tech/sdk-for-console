@@ -8,6 +8,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: production  # Specify the environment here
 
     steps:
     - uses: actions/checkout@v4
