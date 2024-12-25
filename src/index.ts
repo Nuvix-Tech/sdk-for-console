@@ -1,4 +1,4 @@
 /**
  *  @sdk @nuvix/console
  */
-export { Client } from './client.js';
+export { Client } from './client';

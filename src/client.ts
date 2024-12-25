@@ -737,3 +737,4 @@ class Client {
 }
 
 export { Client };
+export type { Payload };

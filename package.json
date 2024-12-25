@@ -1,13 +1,24 @@
 {
   "name": "@nuvix/console",
-  "version": "0.0.1",
-  "main": "src/index.ts",
+  "description": "Nuvix is a open-source self-hosted backend server.",
+  "version": "0.0.2",
+  "main": "dist/cjs/sdk.js",
   "type": "module",
-  "scripts": {
-    "build": "tsc",
-    "start": "node ./dist/test.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "exports": {
+    ".": {
+      "import": "./dist/esm/sdk.js",
+      "require": "./dist/cjs/sdk.js",
+      "types": "./types/index.d.ts"
+    },
+    "./package.json": "./package.json"
   },
+  "module": "dist/esm/sdk.js",
+  "scripts": {
+    "build": "npm run build:types && npm run build:libs",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir types",
+    "build:libs": "rollup -c"
+  },
+  "types": "types/index.d.ts",
   "keywords": [
     "nuvix",
     "console",
@@ -19,8 +30,16 @@
   },
   "author": "Ravikant Saini",
   "license": "BSD-3-Clause",
-  "description": "SDK for Nuvix",
-  "dependencies": {
+  "devDependencies": {
     "typescript": "^5.7.2"
-  }
+  },
+  "dependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "playwright": "^1.49.1",
+    "rollup": "^4.29.1",
+    "serve-handler": "^6.1.6",
+    "tslib": "^2.8.1"
+  },
+  "jsdelivr": "dist/iife/sdk.js",
+  "unpkg": "dist/iife/sdk.js"
 }

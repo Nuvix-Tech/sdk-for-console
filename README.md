@@ -1,157 +1,203 @@
-Welcome to the **Nuvix Console SDK**! This SDK allows developers to interact with the Nuvix platform via the console, enabling the creation, management, and configuration of projects, databases, collections, and documents. The SDK provides an easy-to-use interface for integrating your Nuvix-powered applications directly from the command line.
+# Nuvix Console SDK
 
-## Prerequisites
+The **Nuvix Console SDK** provides an easy-to-use set of tools for interacting with the backend of your Next.js-based console or admin panel. It allows you to perform various operations such as data retrieval, user authentication, and real-time event handling.
 
-- **Node.js**: Ensure that Node.js is installed (preferably version 16 or higher).
-- **Nuvix Account**: You must have a registered Nuvix account.
-- **API Key**: Obtain an API key from your Nuvix console to authenticate your requests.
+This SDK is designed to work seamlessly with your backend, making it easy to integrate API requests, handle real-time updates, and manage complex operations like chunked uploads.
+
+## Features
+
+- **Backend Integration**: Easily connect your Next.js frontend to the backend using GraphQL API.
+- **Real-time Event Handling**: Subscribe to and listen for real-time updates.
+- **Chunked File Uploads**: Upload large files in manageable chunks.
+- **Flexible Configuration**: Configure endpoints, authentication, and project details with ease.
+- **Extensible and Easy to Use**: The SDK is designed for flexibility and ease of integration into your existing projects.
 
 ## Installation
 
-To install the Nuvix Console SDK, use npm or yarn:
+To install the SDK, use npm or yarn:
 
 ```bash
-npm install -g @nuvix/console
+npm install @nuvix/consolek
 ```
 
 or
 
 ```bash
-yarn global add @nuvix/console
+yarn add @nuvix/console
 ```
 
-## Authentication
+## Getting Started
 
-Before using the SDK, you need to authenticate using your Nuvix API key.
+1. **Initialize the SDK**: Import the SDK and create a client instance.
 
-To set up authentication:
+```js
+import { Client } from '@nuvix/console';
 
-1. Run the following command:
-
-```bash
-nuvix login
+// Initialize the SDK client
+const client = new Client();
+client.setEndpoint('https://api.your-backend.com')  // API endpoint
+      .setEndpointRealtime('https://realtime-api.your-backend.com')  // Realtime API endpoint
+      .setProject('your-project-id')  // Project ID
+      .setKey('your-api-key')  // API key
+      .setJWT('your-jwt')  // JWT token
+      .setLocale('en-US')  // Locale setting (optional)
+      .setMode('production');  // Application mode (optional)
 ```
 
-2. Enter your **API Key** when prompted.
+2. **Make API Calls**: You can perform basic API operations such as fetching data, creating resources, and updating records.
 
-Once authenticated, the SDK will store your credentials locally, so you don't need to log in again for subsequent uses.
+```js
+// Fetch data from the backend
+async function fetchData() {
+  try {
+    const data = await client.call('GET', new URL('https://api.your-backend.com/data'));
+    console.log('Fetched data:', data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
 
-## Usage
-
-### 1. **Create a New Project**
-
-To create a new project, use the following command:
-
-```bash
-nuvix create project <project-name>
+fetchData();
 ```
 
-This will create a new project on the Nuvix platform.
+3. **Real-time Event Subscription**: The SDK supports real-time event subscriptions, so you can listen for updates on resources like documents, collections, or files.
 
-### 2. **List Projects**
+```js
+// Subscribe to real-time updates for documents
+const unsubscribe = client.subscribe('documents', (payload) => {
+  console.log('Real-time document update:', payload);
+});
 
-To view all your projects:
-
-```bash
-nuvix list projects
+// Later, you can unsubscribe from the event
+unsubscribe();
 ```
 
-This will display a list of all your projects, including project IDs and names.
+4. **Chunked Uploads**: For large file uploads, you can use the chunked upload method to upload files in parts.
 
-### 3. **Create a Database**
+```js
+// Upload a large file in chunks
+async function uploadFile(file) {
+  const url = new URL('https://api.your-backend.com/upload');
+  const headers = {  };
 
-To create a database within a project:
+  try {
+    const response = await client.chunkedUpload('POST', url, headers, { file }, (progress) => {
+      console.log(`Upload Progress: ${progress.progress}%`);
+    });
+    console.log('Upload completed:', response);
+  } catch (error) {
+    console.error('Error uploading file:', error);
+  }
+}
 
-```bash
-nuvix create database <project-name> <database-name>
+const file = {};  // Your file or data here
+uploadFile(file);
 ```
 
-### 4. **List Databases**
+## SDK Methods
 
-To list all databases within a project:
+### `client.setEndpoint(endpoint: string): this`
+Sets the API endpoint for making requests.
 
-```bash
-nuvix list databases <project-name>
-```
+**Parameters**:
+- `endpoint`: The base URL for your backend API.
 
-### 5. **Create a Collection**
+### `client.setEndpointRealtime(endpointRealtime: string): this`
+Sets the Realtime API endpoint.
 
-To create a collection in a specific database:
+**Parameters**:
+- `endpointRealtime`: The base URL for real-time events.
 
-```bash
-nuvix create collection <project-name> <database-name> <collection-name>
-```
+### `client.setProject(value: string): this`
+Sets the project ID.
 
-### 6. **List Collections**
+**Parameters**:
+- `value`: Your project ID.
 
-To list all collections within a database:
+### `client.setKey(value: string): this`
+Sets the API key.
 
-```bash
-nuvix list collections <project-name> <database-name>
-```
+**Parameters**:
+- `value`: Your API key.
 
-### 7. **Create Document**
+### `client.setJWT(value: string): this`
+Sets the JWT token.
 
-To create a document in a collection:
+**Parameters**:
+- `value`: Your JWT token.
 
-```bash
-nuvix create document <project-name> <database-name> <collection-name> --data "<document-data>"
-```
+### `client.setLocale(value: string): this`
+Sets the locale for the client (optional).
 
-Ensure you replace `<document-data>` with the actual data you wish to insert into the document in JSON format.
+**Parameters**:
+- `value`: The locale, e.g., 'en-US'.
 
-### 8. **List Documents**
+### `client.setMode(value: string): this`
+Sets the mode of the application, such as 'production' or 'development'.
 
-To view all documents in a collection:
+**Parameters**:
+- `value`: The mode of the application.
 
-```bash
-nuvix list documents <project-name> <database-name> <collection-name>
-```
+### `client.call(method: string, url: URL, headers?: Headers, params?: Payload): Promise<any>`
+Performs an API call to the backend.
 
-### 9. **Delete a Document**
+**Parameters**:
+- `method`: HTTP method (e.g., 'GET', 'POST').
+- `url`: The endpoint URL.
+- `headers`: Optional request headers.
+- `params`: Optional parameters.
 
-To delete a specific document:
+**Returns**:
+- A promise with the response data.
 
-```bash
-nuvix delete document <project-name> <database-name> <collection-name> <document-id>
-```
+### `client.subscribe<T>(channels: string | string[], callback: (payload: RealtimeResponseEvent<T>) => void): () => void`
+Subscribes to real-time events.
 
-### 10. **Delete a Database**
+**Parameters**:
+- `channels`: The channels to subscribe to.
+- `callback`: A function that will be called when a real-time update occurs.
 
-To delete an entire database:
+**Returns**:
+- A function to unsubscribe from the event.
 
-```bash
-nuvix delete database <project-name> <database-name>
-```
+### `client.chunkedUpload(method: string, url: URL, headers: Headers, originalPayload: Payload, onProgress: (progress: UploadProgress) => void): Promise<any>`
+Performs a chunked upload for large files.
 
-### 11. **Delete a Project**
+**Parameters**:
+- `method`: The HTTP method (e.g., 'POST').
+- `url`: The URL for the upload endpoint.
+- `headers`: The request headers.
+- `originalPayload`: The data or file to upload.
+- `onProgress`: A callback function to track upload progress.
 
-To delete a project:
+**Returns**:
+- A promise with the upload response.
 
-```bash
-nuvix delete project <project-name>
-```
+### `client.flatten(data: Payload, prefix?: string): Payload`
+Flattens nested data into a simple key-value pair format.
 
-## Configuration
+**Parameters**:
+- `data`: The data to flatten.
+- `prefix`: An optional prefix to prepend to the keys.
 
-The Nuvix Console SDK uses a configuration file stored in your home directory under `~/.nuvix/config.json`. You can manually edit this file to adjust settings or configure additional profiles.
-
-## Error Handling
-
-In case of an error, the SDK will display an appropriate error message, which you can use for troubleshooting. If you encounter any issues, please check the Nuvix documentation or reach out to support.
+**Returns**:
+- The flattened data.
 
 ## Contributing
 
-We welcome contributions to the Nuvix Console SDK! If you have suggestions or improvements, feel free to fork the repository and submit a pull request.
+We welcome contributions to the SDK! If you'd like to contribute, please follow these steps:
 
-### Reporting Issues
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request with a description of the changes.
 
-If you encounter any issues or bugs, please report them by opening an issue in the GitHub repository or reaching out to support.
+Please ensure that your code adheres to the project's coding standards and includes tests (if applicable).
 
 ## License
 
-This SDK is licensed under the [MIT License](LICENSE).
+This SDK is licensed under the [BSD 3-Clause License](LICENSE).
 
 ## Contact
 
-For questions or support, please contact us at support@nuvix.com.
+For questions or support, please reach out to us at [support@nuvix.com](mailto:support@nuvix.com).

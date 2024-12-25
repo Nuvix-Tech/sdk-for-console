@@ -1,15 +1,32 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "module": "NodeNext",
-    "target": "ESNext",
-    "moduleResolution": "NodeNext",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "src",
+    "declaration": false,
     "esModuleInterop": true,
+    "inlineSourceMap": false,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "moduleResolution": "node10",
+    "noFallthroughCasesInSwitch": true,
+    "pretty": true,
+    "rootDir": "src",
+    "skipLibCheck": true,
     "strict": true,
-    "declaration": true
+    "target": "ES6",
+    "traceResolution": false,
   },
-  "ts-node": {
-    "esm": true
-  }
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "include": [
+    "src"
+  ]
 }
