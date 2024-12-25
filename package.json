@@ -1,0 +1,22 @@
+{
+  "name": "@nuvix/console",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sdk",
+    "console",
+    "sdk-for-nuvix-console"
+  ],
+  "author": "Ravikant Saini",
+  "license": "ISC",
+  "description": "SDK for Nuvix",
+  "dependencies": {
+    "typescript": "^5.7.2"
+  }
+}
