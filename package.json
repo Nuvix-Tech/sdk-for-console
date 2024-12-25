@@ -9,12 +9,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "sdk",
+    "nuvix",
     "console",
-    "sdk-for-nuvix-console"
+    "sdk"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravikan6/nuvix-console-sdk.git"
+  },
   "author": "Ravikant Saini",
-  "license": "ISC",
+  "license": "BSD-3-Clause",
   "description": "SDK for Nuvix",
   "dependencies": {
     "typescript": "^5.7.2"
