@@ -1,3 +1,4 @@
+import { Models } from 'models';
 /**
  * Payload type representing a key-value pair with string keys and any values.
  */
@@ -56,6 +57,33 @@ type UploadProgress = {
      */
     chunksUploaded: number;
 };
+/**
+* Exception thrown by the  package
+*/
+declare class NuvixException extends Error {
+    /**
+     * The error code associated with the exception.
+     */
+    code: number;
+    /**
+     * The response string associated with the exception.
+     */
+    response: string;
+    /**
+     * Error type.
+     * See [Error Types](https://nuvix.io/docs/response-codes#errorTypes) for more information.
+     */
+    type: string;
+    /**
+     * Initializes a Nuvix Exception.
+     *
+     * @param {string} message - The error message.
+     * @param {number} code - The error code. Default is 0.
+     * @param {string} type - The error type. Default is an empty string.
+     * @param {string} response - The response string. Default is an empty string.
+     */
+    constructor(message: string, code?: number, type?: string, response?: string);
+}
 /**
 * Client that handles requests to Nuvix
 */
@@ -177,5 +205,8 @@ declare class Client {
     call(method: string, url: URL, headers?: Headers, params?: Payload, responseType?: string): Promise<any>;
     static flatten(data: Payload, prefix?: string): Payload;
 }
-export { Client };
-export type { Payload };
+export { Client, NuvixException };
+export { Query } from './query';
+export type { Models, Payload, UploadProgress };
+export type { RealtimeResponseEvent };
+export type { QueryTypes, QueryTypesList } from './query';

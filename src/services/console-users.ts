@@ -6,7 +6,7 @@ import { UserUsageRange } from '../enums/user-usage-range';
 import { AuthenticatorType } from '../enums/authenticator-type';
 import { MessagingProviderType } from '../enums/messaging-provider-type';
 
-export class Users {
+export class ConsoleUsers {
   client: Client;
 
   constructor(client: Client) {
