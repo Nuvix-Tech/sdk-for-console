@@ -1,3 +1,5 @@
+import { Models } from 'models';
+
 /**
  * Payload type representing a key-value pair with string keys and any values.
  */
@@ -255,7 +257,7 @@ class NuvixException extends Error {
 
   /**
    * Error type.
-   * See [Error Types](https://appwrite.io/docs/response-codes#errorTypes) for more information.
+   * See [Error Types](https://nuvix.io/docs/response-codes#errorTypes) for more information.
    */
   type: string;
 
@@ -278,7 +280,7 @@ class NuvixException extends Error {
 }
 
 /**
-* Client that handles requests to Appwrite
+* Client that handles requests to Nuvix
 */
 class Client {
   static CHUNK_SIZE = 1024 * 1024 * 5;
@@ -736,5 +738,8 @@ class Client {
   }
 }
 
-export { Client };
-export type { Payload };
+export { Client, NuvixException };
+export { Query } from './query';
+export type { Models, Payload, UploadProgress };
+export type { RealtimeResponseEvent };
+export type { QueryTypes, QueryTypesList } from './query';

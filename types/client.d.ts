@@ -57,7 +57,7 @@ type UploadProgress = {
     chunksUploaded: number;
 };
 /**
-* Client that handles requests to Appwrite
+* Client that handles requests to Nuvix
 */
 declare class Client {
     static CHUNK_SIZE: number;
