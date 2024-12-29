@@ -13,7 +13,7 @@ export class Organizations {
     /**
      * List Orgnizations
      *
-     * Get a list of all the teams in which the current user is a member. You can use the parameters to filter your results.
+     * Get a list of all the Organizations in which the current user is a member. You can use the parameters to filter your results.
      *
      * @param {string[]} queries
      * @param {string} search
@@ -46,7 +46,7 @@ export class Organizations {
     /**
      * Create Organization
      *
-     * Create a new team. The user who creates the team will automatically be assigned as the owner of the team. Only the users with the owner role can invite new members, add new owners and delete or update the team.
+     * Create a new Organization. The user who creates the Organization will automatically be assigned as the owner of the Organization. Only the users with the owner role can invite new members, add new owners and delete or update the Organization.
      *
      * @param {string} organizationId
      * @param {string} name
@@ -98,9 +98,38 @@ export class Organizations {
         );
     }
     /**
-     * Delete team
+ * Get Organization
+ *
+ * Get a Organization by its ID. All Organization members have read access for this resource.
+ *
+ * @param {string} organizationId
+ * @throws {NuvixException}
+ * @returns {Promise<Models.Organization<Preferences>>}
+ */
+    async get<Preferences extends Models.Preferences>(organizationId: string): Promise<Models.Organization<Preferences>> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}'.replace('{organizationId}', organizationId);
+        const payload: Payload = {};
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'get',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+    /**
+     * Delete Organization
      *
-     * Delete a team using its ID. Only team members with the owner role can delete the team.
+     * Delete a Organization using its ID. Only Organization members with the owner role can delete the Organization.
      *
      * @param {string} organizationId
      * @throws {NuvixException}
@@ -191,7 +220,7 @@ export class Organizations {
         );
     }
     /**
-     * Set team&#039;s billing address
+     * Set Organization&#039;s billing address
      *
      *
      * @param {string} organizationId
@@ -226,7 +255,7 @@ export class Organizations {
         );
     }
     /**
-     * Delete team&#039;s billing address
+     * Delete Organization&#039;s billing address
      *
      *
      * @param {string} organizationId
@@ -286,7 +315,7 @@ export class Organizations {
         );
     }
     /**
-     * Set team&#039;s billing email
+     * Set Organization&#039;s billing email
      *
      *
      * @param {string} organizationId
@@ -626,7 +655,7 @@ export class Organizations {
         );
     }
     /**
-     * Set team&#039;s payment method
+     * Set Organization&#039;s payment method
      *
      *
      * @param {string} organizationId
@@ -661,7 +690,7 @@ export class Organizations {
         );
     }
     /**
-     * Delete team&#039;s default payment method
+     * Delete Organization&#039;s default payment method
      *
      *
      * @param {string} organizationId
@@ -689,7 +718,7 @@ export class Organizations {
         );
     }
     /**
-     * Set team&#039;s backup payment method
+     * Set Organization&#039;s backup payment method
      *
      *
      * @param {string} organizationId
@@ -724,7 +753,7 @@ export class Organizations {
         );
     }
     /**
-     * Delete team&#039;s backup payment method
+     * Delete Organization&#039;s backup payment method
      *
      *
      * @param {string} organizationId
@@ -883,7 +912,7 @@ export class Organizations {
         );
     }
     /**
-     * Set team&#039;s tax Id
+     * Set Organization&#039;s tax Id
      *
      *
      * @param {string} organizationId
@@ -918,7 +947,7 @@ export class Organizations {
         );
     }
     /**
-     * Get team&#039;s usage data
+     * Get Organization&#039;s usage data
      *
      *
      * @param {string} organizationId
@@ -948,6 +977,301 @@ export class Organizations {
 
         return await this.client.call(
             'get',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+
+    // **
+    /**
+         * Update name
+         *
+         * Update the team&#039;s name by its unique ID.
+         *
+         * @param {string} organizationId
+         * @param {string} name
+         * @throws {NuvixException}
+         * @returns {Promise<Models.Organization<Preferences>>}
+         */
+    async updateName<Preferences extends Models.Preferences>(organizationId: string, name: string): Promise<Models.Organization<Preferences>> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        if (typeof name === 'undefined') {
+            throw new NuvixException('Missing required parameter: "name"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}'.replace('{organizationId}', organizationId);
+        const payload: Payload = {};
+        if (typeof name !== 'undefined') {
+            payload['name'] = name;
+        }
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+        return await this.client.call(
+            'put',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+
+    /**
+     * List team memberships
+     *
+     * Use this endpoint to list a team&#039;s members using the team&#039;s ID. All team members have read access to this endpoint. Hide sensitive attributes from the response by toggling membership privacy in the Console.
+     *
+     * @param {string} organizationId
+     * @param {string[]} queries
+     * @param {string} search
+     * @throws {NuvixException}
+     * @returns {Promise<Models.MembershipList>}
+     */
+    async listMemberships(organizationId: string, queries?: string[], search?: string): Promise<Models.MembershipList> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/memberships'.replace('{organizationId}', organizationId);
+        const payload: Payload = {};
+        if (typeof queries !== 'undefined') {
+            payload['queries'] = queries;
+        }
+        if (typeof search !== 'undefined') {
+            payload['search'] = search;
+        }
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'get',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+    /**
+     * Create team membership
+     *
+     * Invite a new member to join your team. Provide an ID for existing users, or invite unregistered users using an email or phone number. If initiated from a Client SDK, Nuvix will send an email or sms with a link to join the team to the invited user, and an account will be created for them if one doesn&#039;t exist. If initiated from a Server SDK, the new member will be added automatically to the team.
+
+You only need to provide one of a user ID, email, or phone number. Nuvix will prioritize accepting the user ID &gt; email &gt; phone number if you provide more than one of these parameters.
+
+Use the `url` parameter to redirect the user from the invitation email to your app. After the user is redirected, use the [Update Team Membership Status](https://nuvix.io/docs/references/cloud/client-web/teams#updateMembershipStatus) endpoint to allow the user to accept the invitation to the team. 
+
+Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.md) Nuvix will accept the only redirect URLs under the domains you have added as a platform on the Nuvix Console.
+
+     *
+     * @param {string} organizationId
+     * @param {string[]} roles
+     * @param {string} email
+     * @param {string} userId
+     * @param {string} phone
+     * @param {string} url
+     * @param {string} name
+     * @throws {NuvixException}
+     * @returns {Promise<Models.Membership>}
+     */
+    async createMembership(organizationId: string, roles: string[], email?: string, userId?: string, phone?: string, url?: string, name?: string): Promise<Models.Membership> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        if (typeof roles === 'undefined') {
+            throw new NuvixException('Missing required parameter: "roles"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/memberships'.replace('{organizationId}', organizationId);
+        const payload: Payload = {};
+        if (typeof email !== 'undefined') {
+            payload['email'] = email;
+        }
+        if (typeof userId !== 'undefined') {
+            payload['userId'] = userId;
+        }
+        if (typeof phone !== 'undefined') {
+            payload['phone'] = phone;
+        }
+        if (typeof roles !== 'undefined') {
+            payload['roles'] = roles;
+        }
+        if (typeof url !== 'undefined') {
+            payload['url'] = url;
+        }
+        if (typeof name !== 'undefined') {
+            payload['name'] = name;
+        }
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'post',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+    /**
+     * Get team membership
+     *
+     * Get a team member by the membership unique id. All team members have read access for this resource. Hide sensitive attributes from the response by toggling membership privacy in the Console.
+     *
+     * @param {string} organizationId
+     * @param {string} membershipId
+     * @throws {NuvixException}
+     * @returns {Promise<Models.Membership>}
+     */
+    async getMembership(organizationId: string, membershipId: string): Promise<Models.Membership> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        if (typeof membershipId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "membershipId"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+        const payload: Payload = {};
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'get',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+    /**
+     * Update membership
+     *
+     * Modify the roles of a team member. Only team members with the owner role have access to this endpoint. Learn more about [roles and permissions](https://nuvix.io/docs/permissions).
+
+     *
+     * @param {string} organizationId
+     * @param {string} membershipId
+     * @param {string[]} roles
+     * @throws {NuvixException}
+     * @returns {Promise<Models.Membership>}
+     */
+    async updateMembership(organizationId: string, membershipId: string, roles: string[]): Promise<Models.Membership> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        if (typeof membershipId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "membershipId"');
+        }
+        if (typeof roles === 'undefined') {
+            throw new NuvixException('Missing required parameter: "roles"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+        const payload: Payload = {};
+        if (typeof roles !== 'undefined') {
+            payload['roles'] = roles;
+        }
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'patch',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+    /**
+     * Delete team membership
+     *
+     * This endpoint allows a user to leave a team or for a team owner to delete the membership of any other team member. You can also use this endpoint to delete a user membership even if it is not accepted.
+     *
+     * @param {string} organizationId
+     * @param {string} membershipId
+     * @throws {NuvixException}
+     * @returns {Promise<{}>}
+     */
+    async deleteMembership(organizationId: string, membershipId: string): Promise<{}> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        if (typeof membershipId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "membershipId"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+        const payload: Payload = {};
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'delete',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+    /**
+     * Update team membership status
+     *
+     * Use this endpoint to allow a user to accept an invitation to join a team after being redirected back to your app from the invitation email received by the user.
+
+If the request is successful, a session for the user is automatically created.
+
+     *
+     * @param {string} organizationId
+     * @param {string} membershipId
+     * @param {string} userId
+     * @param {string} secret
+     * @throws {NuvixException}
+     * @returns {Promise<Models.Membership>}
+     */
+    async updateMembershipStatus(organizationId: string, membershipId: string, userId: string, secret: string): Promise<Models.Membership> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        if (typeof membershipId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "membershipId"');
+        }
+        if (typeof userId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "userId"');
+        }
+        if (typeof secret === 'undefined') {
+            throw new NuvixException('Missing required parameter: "secret"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/memberships/{membershipId}/status'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+        const payload: Payload = {};
+        if (typeof userId !== 'undefined') {
+            payload['userId'] = userId;
+        }
+        if (typeof secret !== 'undefined') {
+            payload['secret'] = secret;
+        }
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'patch',
             uri,
             apiHeaders,
             payload
