@@ -17,7 +17,7 @@ This SDK is designed to work seamlessly with your backend, making it easy to int
 To install the SDK, use npm or yarn:
 
 ```bash
-npm install @nuvix/consolek
+npm install @nuvix/console
 ```
 
 or
