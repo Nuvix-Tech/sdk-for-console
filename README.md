@@ -39,11 +39,6 @@ yarn add @nuvix/console
 ```typescript
 import { Client } from '@nuvix/console';
 
-const client = new Client({
-  endpoint: '',
-  project: 'YOUR_PROJECT_ID',
-  key: 'YOUR_API_KEY',
-});
 const client = new Client();
     .setEndpoint('https://api.nuvix.com/v1')  // API endpoint
     .setEndpointRealtime('https://api.nuvix.com/v1/realtime')  // Realtime API endpoint
