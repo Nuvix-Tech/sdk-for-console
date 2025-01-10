@@ -1,4 +1,5 @@
 import { Models } from 'models';
+import { io, Socket } from "socket.io-client";
 
 /**
  * Payload type representing a key-value pair with string keys and any values.
@@ -136,7 +137,7 @@ type Realtime = {
   /**
    * WebSocket instance for realtime communication.
    */
-  socket?: WebSocket;
+  socket?: Socket;
 
   /**
    * Timeout duration for communication operations.
@@ -304,7 +305,7 @@ class Client {
     'x-sdk-name': 'Console',
     'x-sdk-platform': 'console',
     'x-sdk-language': 'web',
-    'x-sdk-version': '1.0.0',
+    'x-sdk-version': '0.0.3',
     'X-Nuvix-Response-Format': '1.0.0',
   };
 
@@ -435,43 +436,37 @@ class Client {
     createSocket: () => {
       if (this.realtime.channels.size < 1) {
         this.realtime.reconnect = false;
-        this.realtime.socket?.close();
+        this.realtime.socket?.disconnect();
         return;
       }
 
-      const channels = new URLSearchParams();
-      channels.set('project', this.config.project);
-      this.realtime.channels.forEach(channel => {
-        channels.append('channels[]', channel);
-      });
-
-      const url = this.config.endpointRealtime + '/realtime?' + channels.toString();
+      const channels = Array.from(this.realtime.channels);
+      const url = this.config.endpointRealtime;
 
       if (
         url !== this.realtime.url || // Check if URL is present
-        !this.realtime.socket || // Check if WebSocket has not been created
-        this.realtime.socket?.readyState > WebSocket.OPEN // Check if WebSocket is CLOSING (3) or CLOSED (4)
+        !this.realtime.socket // Check if Socket.IO client has not been created
       ) {
-        if (
-          this.realtime.socket &&
-          this.realtime.socket?.readyState < WebSocket.CLOSING // Close WebSocket if it is CONNECTING (0) or OPEN (1)
-        ) {
-          this.realtime.reconnect = false;
-          this.realtime.socket.close();
-        }
-
         this.realtime.url = url;
-        this.realtime.socket = new WebSocket(url);
-        this.realtime.socket.addEventListener('message', this.realtime.onMessage);
-        this.realtime.socket.addEventListener('open', _event => {
+        this.realtime.socket?.disconnect();
+        this.realtime.socket = io(url, {
+          query: {
+            project: this.config.project,
+            channels: channels.join(","),
+          },
+          reconnection: false,
+        });
+
+        this.realtime.socket.on("connect", () => {
           this.realtime.reconnectAttempts = 0;
         });
-        this.realtime.socket.addEventListener('close', event => {
+
+        this.realtime.socket.on("disconnect", (reason) => {
           if (
             !this.realtime.reconnect ||
             (
-              this.realtime?.lastMessage?.type === 'error' && // Check if last message was of type error
-              (<RealtimeResponseError>this.realtime?.lastMessage.data).code === 1008 // Check for policy violation 1008
+              this.realtime?.lastMessage?.type === 'error' &&
+              (<RealtimeResponseError>this.realtime?.lastMessage.data).code === 1008
             )
           ) {
             this.realtime.reconnect = true;
@@ -479,48 +474,50 @@ class Client {
           }
 
           const timeout = this.realtime.getTimeout();
-          console.error(`Realtime got disconnected. Reconnect will be attempted in ${timeout / 1000} seconds.`, event.reason);
+          console.error(`Realtime disconnected. Reconnect in ${timeout / 1000} seconds. Reason: ${reason}`);
 
           setTimeout(() => {
             this.realtime.reconnectAttempts++;
             this.realtime.createSocket();
           }, timeout);
-        })
+        });
+
+        this.realtime.socket.on("message", this.realtime.onMessage);
       }
     },
-    onMessage: (event) => {
+    onMessage: (data) => {
       try {
-        const message: RealtimeResponse = JSON.parse(event.data);
+        const message: RealtimeResponse = typeof data === "string" ? JSON.parse(data) : data;
         this.realtime.lastMessage = message;
+
         switch (message.type) {
-          case 'connected':
-            const cookie = JSON.parse(window.localStorage.getItem('cookieFallback') ?? '{}');
+          case "connected":
+            const cookie = JSON.parse(window.localStorage.getItem("cookieFallback") ?? "{}");
             const session = cookie?.[`a_session_${this.config.project}`];
             const messageData = <RealtimeResponseConnected>message.data;
 
             if (session && !messageData.user) {
-              this.realtime.socket?.send(JSON.stringify(<RealtimeRequest>{
-                type: 'authentication',
-                data: {
-                  session
-                }
-              }));
+              this.realtime.socket?.emit("authentication", { session });
             }
             break;
-          case 'event':
-            let data = <RealtimeResponseEvent<unknown>>message.data;
-            if (data?.channels) {
-              const isSubscribed = data.channels.some(channel => this.realtime.channels.has(channel));
+
+          case "event":
+            let eventData = <RealtimeResponseEvent<unknown>>message.data;
+            if (eventData?.channels) {
+              const isSubscribed = eventData.channels.some(channel => this.realtime.channels.has(channel));
               if (!isSubscribed) return;
+
               this.realtime.subscriptions.forEach(subscription => {
-                if (data.channels.some(channel => subscription.channels.includes(channel))) {
-                  setTimeout(() => subscription.callback(data));
+                if (eventData.channels.some(channel => subscription.channels.includes(channel))) {
+                  setTimeout(() => subscription.callback(eventData));
                 }
-              })
+              });
             }
             break;
-          case 'error':
+
+          case "error":
             throw message.data;
+
           default:
             break;
         }
@@ -528,20 +525,20 @@ class Client {
         console.error(e);
       }
     },
-    cleanUp: channels => {
+    cleanUp: (channels) => {
       this.realtime.channels.forEach(channel => {
         if (channels.includes(channel)) {
           let found = Array.from(this.realtime.subscriptions).some(([_key, subscription]) => {
             return subscription.channels.includes(channel);
-          })
+          });
 
           if (!found) {
             this.realtime.channels.delete(channel);
           }
         }
-      })
+      });
     }
-  }
+  };
 
   /**
    * Subscribes to Nuvix events and passes you the payload in realtime.
@@ -584,7 +581,7 @@ class Client {
       this.realtime.subscriptions.delete(counter);
       this.realtime.cleanUp(channelArray);
       this.realtime.connect();
-    }
+    };
   }
 
   prepareRequest(method: string, url: URL, headers: Headers = {}, params: Payload = {}): { uri: string, options: RequestInit } {

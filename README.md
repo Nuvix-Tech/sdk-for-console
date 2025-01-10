@@ -1,203 +1,144 @@
 # Nuvix Console SDK
 
-The **Nuvix Console SDK** provides an easy-to-use set of tools for interacting with the backend of your Next.js-based console or admin panel. It allows you to perform various operations such as data retrieval, user authentication, and real-time event handling.
+The **Nuvix Console SDK** provides developers with a convenient way to interact with the Nuvix backend, designed for managing projects, organizations, and related resources. This SDK is fully compatible with **Nuvix server version 1.0.x**. For compatibility with older server versions, refer to the [release notes](https://github.com/ravikn6/nuvix-console-sdk/releases).
 
-This SDK is designed to work seamlessly with your backend, making it easy to integrate API requests, handle real-time updates, and manage complex operations like chunked uploads.
+---
 
 ## Features
 
-- **Backend Integration**: Easily connect your Next.js frontend to the backend using GraphQL API.
-- **Real-time Event Handling**: Subscribe to and listen for real-time updates.
-- **Chunked File Uploads**: Upload large files in manageable chunks.
-- **Flexible Configuration**: Configure endpoints, authentication, and project details with ease.
-- **Extensible and Easy to Use**: The SDK is designed for flexibility and ease of integration into your existing projects.
+- Manage **Accounts** and **Users**.
+- Operate on **Projects**, **Organizations**, and **Teams**.
+- Utilize **Databases**, **Functions**, **Storage**, and **Backups**.
+- Handle real-time updates with **RealtimeResponseEvent**.
+- Comprehensive support for **Messaging**, **Health Checks**, **GraphQL**, and **Locale** services.
+- Authentication and OAuth support via enums like `AuthenticatorType` and `OAuthProvider`.
+- Simplified management of roles, permissions, and configurations.
+
+---
 
 ## Installation
 
-To install the SDK, use npm or yarn:
+Install the SDK via npm:
 
 ```bash
 npm install @nuvix/console
 ```
 
-or
+Or using Yarn:
 
 ```bash
 yarn add @nuvix/console
 ```
 
+---
+
 ## Getting Started
 
-1. **Initialize the SDK**: Import the SDK and create a client instance.
+### Initializing the Client
 
-```js
+```typescript
 import { Client } from '@nuvix/console';
 
-// Initialize the SDK client
+const client = new Client({
+  endpoint: '',
+  project: 'YOUR_PROJECT_ID',
+  key: 'YOUR_API_KEY',
+});
 const client = new Client();
-client.setEndpoint('https://api.your-backend.com')  // API endpoint
-      .setEndpointRealtime('https://realtime-api.your-backend.com')  // Realtime API endpoint
-      .setProject('your-project-id')  // Project ID
-      .setKey('your-api-key')  // API key
-      .setJWT('your-jwt')  // JWT token
-      .setLocale('en-US')  // Locale setting (optional)
-      .setMode('production');  // Application mode (optional)
+    .setEndpoint('https://api.nuvix.com/v1')  // API endpoint
+    .setEndpointRealtime('https://api.nuvix.com/v1/realtime')  // Realtime API endpoint
+    .setLocale('en-US')  // Locale setting (optional)
 ```
 
-2. **Make API Calls**: You can perform basic API operations such as fetching data, creating resources, and updating records.
+### Example: Managing Accounts
 
-```js
-// Fetch data from the backend
-async function fetchData() {
-  try {
-    const data = await client.call('GET', new URL('https://api.your-backend.com/data'));
-    console.log('Fetched data:', data);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-}
+```typescript
+import { Account } from '@nuvix/console';
 
-fetchData();
-```
+const accountService = new Account(client);
 
-3. **Real-time Event Subscription**: The SDK supports real-time event subscriptions, so you can listen for updates on resources like documents, collections, or files.
-
-```js
-// Subscribe to real-time updates for documents
-const unsubscribe = client.subscribe('documents', (payload) => {
-  console.log('Real-time document update:', payload);
+// Create a new account
+accountService.create({
+  email: 'user@example.com',
+  password: 'securepassword',
 });
 
-// Later, you can unsubscribe from the event
-unsubscribe();
+// Retrieve account details
+const accountDetails = await accountService.get();
+console.log(accountDetails);
 ```
 
-4. **Chunked Uploads**: For large file uploads, you can use the chunked upload method to upload files in parts.
+### Example: Real-Time Subscriptions
 
-```js
-// Upload a large file in chunks
-async function uploadFile(file) {
-  const url = new URL('https://api.your-backend.com/upload');
-  const headers = {  };
+```typescript
+import { RealtimeResponseEvent } from '@nuvix/console';
 
-  try {
-    const response = await client.chunkedUpload('POST', url, headers, { file }, (progress) => {
-      console.log(`Upload Progress: ${progress.progress}%`);
-    });
-    console.log('Upload completed:', response);
-  } catch (error) {
-    console.error('Error uploading file:', error);
-  }
-}
-
-const file = {};  // Your file or data here
-uploadFile(file);
+client.subscribe('projects', (event: RealtimeResponseEvent) => {
+  console.log('Realtime event:', event);
+});
 ```
 
-## SDK Methods
+---
 
-### `client.setEndpoint(endpoint: string): this`
-Sets the API endpoint for making requests.
+## Services
 
-**Parameters**:
-- `endpoint`: The base URL for your backend API.
+The SDK includes services for interacting with various Nuvix resources:
 
-### `client.setEndpointRealtime(endpointRealtime: string): this`
-Sets the Realtime API endpoint.
+- **Account**: Manage user accounts.
+- **Avatars**: Handle user avatars.
+- **Backups**: Manage database backups.
+- **Databases**: Operate on databases and collections.
+- **Functions**: Deploy and execute serverless functions.
+- **Organizations**: Manage organizations and their members.
+- **Projects**: Create and manage projects.
+- **Storage**: Handle file uploads and downloads.
+- **Teams**: Manage team memberships and permissions.
+- **Users**: Operate on users within the platform.
 
-**Parameters**:
-- `endpointRealtime`: The base URL for real-time events.
+For a full list of services, refer to the [API documentation](https://docs.nuvix.com/console-sdk).
 
-### `client.setProject(value: string): this`
-Sets the project ID.
+---
 
-**Parameters**:
-- `value`: Your project ID.
+## Advanced Usage
 
-### `client.setKey(value: string): this`
-Sets the API key.
+### Enums
 
-**Parameters**:
-- `value`: Your API key.
+The SDK provides a rich set of enums for standardizing interactions:
 
-### `client.setJWT(value: string): this`
-Sets the JWT token.
+- `AuthenticatorType`: Authentication mechanisms.
+- `OAuthProvider`: Supported OAuth providers.
+- `Region`: Available regions for resource deployment.
+- And many more.
 
-**Parameters**:
-- `value`: Your JWT token.
+### Types
 
-### `client.setLocale(value: string): this`
-Sets the locale for the client (optional).
+Type safety is provided through:
 
-**Parameters**:
-- `value`: The locale, e.g., 'en-US'.
+- `Models`
+- `Payload`
+- `RealtimeResponseEvent`
+- `UploadProgress`
 
-### `client.setMode(value: string): this`
-Sets the mode of the application, such as 'production' or 'development'.
+### Permissions and Roles
 
-**Parameters**:
-- `value`: The mode of the application.
+Use the `Permission` and `Role` classes to manage user and team permissions.
 
-### `client.call(method: string, url: URL, headers?: Headers, params?: Payload): Promise<any>`
-Performs an API call to the backend.
-
-**Parameters**:
-- `method`: HTTP method (e.g., 'GET', 'POST').
-- `url`: The endpoint URL.
-- `headers`: Optional request headers.
-- `params`: Optional parameters.
-
-**Returns**:
-- A promise with the response data.
-
-### `client.subscribe<T>(channels: string | string[], callback: (payload: RealtimeResponseEvent<T>) => void): () => void`
-Subscribes to real-time events.
-
-**Parameters**:
-- `channels`: The channels to subscribe to.
-- `callback`: A function that will be called when a real-time update occurs.
-
-**Returns**:
-- A function to unsubscribe from the event.
-
-### `client.chunkedUpload(method: string, url: URL, headers: Headers, originalPayload: Payload, onProgress: (progress: UploadProgress) => void): Promise<any>`
-Performs a chunked upload for large files.
-
-**Parameters**:
-- `method`: The HTTP method (e.g., 'POST').
-- `url`: The URL for the upload endpoint.
-- `headers`: The request headers.
-- `originalPayload`: The data or file to upload.
-- `onProgress`: A callback function to track upload progress.
-
-**Returns**:
-- A promise with the upload response.
-
-### `client.flatten(data: Payload, prefix?: string): Payload`
-Flattens nested data into a simple key-value pair format.
-
-**Parameters**:
-- `data`: The data to flatten.
-- `prefix`: An optional prefix to prepend to the keys.
-
-**Returns**:
-- The flattened data.
+---
 
 ## Contributing
 
-We welcome contributions to the SDK! If you'd like to contribute, please follow these steps:
+Contributions are welcome! Please read our [Contributing Guide](https://github.com/ravikn6/nuvix-console-sdk/blob/main/CONTRIBUTING.md) for guidelines.
 
-1. Fork the repository.
-2. Create a new branch.
-3. Make your changes.
-4. Submit a pull request with a description of the changes.
-
-Please ensure that your code adheres to the project's coding standards and includes tests (if applicable).
+---
 
 ## License
 
-This SDK is licensed under the [BSD 3-Clause License](LICENSE).
+This SDK is licensed under the BSD 3-Clause License. See the [LICENSE](https://github.com/ravikn6/nuvix-console-sdk/blob/main/LICENSE) file for details.
 
-## Contact
+---
 
-For questions or support, please reach out to us at [support@nuvix.com](mailto:support@nuvix.com).
+## Support
+
+If you encounter any issues, feel free to open an [issue](https://github.com/ravikn6/nuvix-console-sdk/issues) or contact us at [support@nuvix.com](mailto:support@nuvix.com).
+
+---

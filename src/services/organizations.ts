@@ -1277,4 +1277,71 @@ If the request is successful, a session for the user is automatically created.
             payload
         );
     }
+
+    /**
+      * Get team preferences
+      *
+      * Get the team&#039;s shared preferences by its unique ID. If a preference doesn&#039;t need to be shared by all team members, prefer storing them in [user preferences](https://nuvix.io/docs/references/cloud/client-web/account#getPrefs).
+      *
+      * @param {string} organizationId
+      * @throws {NuvixException}
+      * @returns {Promise<Preferences>}
+      */
+    async getPrefs<Preferences extends Models.Preferences>(organizationId: string): Promise<Preferences> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/prefs'.replace('{organizationId}', organizationId);
+        const payload: Payload = {};
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'get',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
+
+    /**
+     * Update preferences
+     *
+     * Update the team&#039;s preferences by its unique ID. The object you pass is stored as is and replaces any previous value. The maximum allowed prefs size is 64kB and throws an error if exceeded.
+     *
+     * @param {string} organizationId
+     * @param {object} prefs
+     * @throws {NuvixException}
+     * @returns {Promise<Preferences>}
+     */
+    async updatePrefs<Preferences extends Models.Preferences>(organizationId: string, prefs: object): Promise<Preferences> {
+        if (typeof organizationId === 'undefined') {
+            throw new NuvixException('Missing required parameter: "organizationId"');
+        }
+        if (typeof prefs === 'undefined') {
+            throw new NuvixException('Missing required parameter: "prefs"');
+        }
+        const apiPath = '/console/users/organizations/{organizationId}/prefs'.replace('{organizationId}', organizationId);
+        const payload: Payload = {};
+        if (typeof prefs !== 'undefined') {
+            payload['prefs'] = prefs;
+        }
+        const uri = new URL(this.client.config.endpoint + apiPath);
+
+        const apiHeaders: { [header: string]: string } = {
+            'content-type': 'application/json',
+        }
+
+
+        return await this.client.call(
+            'put',
+            uri,
+            apiHeaders,
+            payload
+        );
+    }
 }
