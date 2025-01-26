@@ -27,7 +27,7 @@ export class Project {
         if (typeof endDate === 'undefined') {
             throw new NuvixException('Missing required parameter: "endDate"');
         }
-        const apiPath = '/project/usage';
+        const apiPath = '/console/project/usage';
         const payload: Payload = {};
         if (typeof startDate !== 'undefined') {
             payload['startDate'] = startDate;
@@ -61,7 +61,7 @@ export class Project {
      * @returns {Promise<Models.VariableList>}
      */
     async listVariables(): Promise<Models.VariableList> {
-        const apiPath = '/project/variables';
+        const apiPath = '/console/project/variables';
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -94,7 +94,7 @@ export class Project {
         if (typeof value === 'undefined') {
             throw new NuvixException('Missing required parameter: "value"');
         }
-        const apiPath = '/project/variables';
+        const apiPath = '/console/project/variables';
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -129,7 +129,7 @@ export class Project {
         if (typeof variableId === 'undefined') {
             throw new NuvixException('Missing required parameter: "variableId"');
         }
-        const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
+        const apiPath = '/console/project/variables/{variableId}'.replace('{variableId}', variableId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -163,7 +163,7 @@ export class Project {
         if (typeof key === 'undefined') {
             throw new NuvixException('Missing required parameter: "key"');
         }
-        const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
+        const apiPath = '/console/project/variables/{variableId}'.replace('{variableId}', variableId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -198,7 +198,7 @@ export class Project {
         if (typeof variableId === 'undefined') {
             throw new NuvixException('Missing required parameter: "variableId"');
         }
-        const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
+        const apiPath = '/console/project/variables/{variableId}'.replace('{variableId}', variableId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 

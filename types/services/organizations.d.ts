@@ -396,4 +396,25 @@ If the request is successful, a session for the user is automatically created.
      * @returns {Promise<Models.Membership>}
      */
     updateMembershipStatus(organizationId: string, membershipId: string, userId: string, secret: string): Promise<Models.Membership>;
+    /**
+      * Get team preferences
+      *
+      * Get the team&#039;s shared preferences by its unique ID. If a preference doesn&#039;t need to be shared by all team members, prefer storing them in [user preferences](https://nuvix.io/docs/references/cloud/client-web/account#getPrefs).
+      *
+      * @param {string} organizationId
+      * @throws {NuvixException}
+      * @returns {Promise<Preferences>}
+      */
+    getPrefs<Preferences extends Models.Preferences>(organizationId: string): Promise<Preferences>;
+    /**
+     * Update preferences
+     *
+     * Update the team&#039;s preferences by its unique ID. The object you pass is stored as is and replaces any previous value. The maximum allowed prefs size is 64kB and throws an error if exceeded.
+     *
+     * @param {string} organizationId
+     * @param {object} prefs
+     * @throws {NuvixException}
+     * @returns {Promise<Preferences>}
+     */
+    updatePrefs<Preferences extends Models.Preferences>(organizationId: string, prefs: object): Promise<Preferences>;
 }
