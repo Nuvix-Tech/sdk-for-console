@@ -1,5 +1,7 @@
-import pkg from './package.json' assert { type: 'json' };
+import fs from 'fs';
 import typescript from "@rollup/plugin-typescript";
+
+const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
 export default {
     external: Object.keys(pkg.dependencies ?? {}),
@@ -22,6 +24,9 @@ export default {
             file: pkg.jsdelivr,
             name: "Nuvix",
             extend: true,
+            globals: {
+                'socket.io-client': 'io'
+            }
         },
     ],
 };

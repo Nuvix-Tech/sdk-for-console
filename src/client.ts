@@ -461,7 +461,7 @@ class Client {
           this.realtime.reconnectAttempts = 0;
         });
 
-        this.realtime.socket.on("disconnect", (reason) => {
+        this.realtime.socket.on("disconnect", (reason: any) => {
           if (
             !this.realtime.reconnect ||
             (
