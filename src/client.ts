@@ -1,4 +1,4 @@
-import { Models } from 'models';
+import { Models } from './models';
 import { io, Socket } from "socket.io-client";
 
 /**

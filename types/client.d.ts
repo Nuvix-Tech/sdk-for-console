@@ -1,4 +1,4 @@
-import { Models } from 'models';
+import { Models } from './models';
 /**
  * Payload type representing a key-value pair with string keys and any values.
  */
