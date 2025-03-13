@@ -28,6 +28,7 @@ export { Storage } from './services/storage';
 export { Teams } from './services/teams';
 export { Users } from './services/users';
 export { Vcs } from './services/vcs';
+export * from "./services/billing";
 export type { Models, Payload, RealtimeResponseEvent, UploadProgress } from './client';
 export type { QueryTypes, QueryTypesList } from './query';
 export { Permission } from './permission';
