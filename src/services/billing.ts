@@ -203,7 +203,7 @@ export class Billing {
     }
 
     async listPaymentMethods(queries: [] = []): Promise<PaymentList> {
-        const path = `/console/account/payment-methods`;
+        const path = `/account/payment-methods`;
         const params = {
             queries
         };
@@ -219,7 +219,7 @@ export class Billing {
     }
 
     async getPaymentMethod(paymentMethodId: string): Promise<PaymentMethodData> {
-        const path = `/console/account/payment-methods/${paymentMethodId}`;
+        const path = `/account/payment-methods/${paymentMethodId}`;
         const params = {
             paymentMethodId
         };
@@ -235,7 +235,7 @@ export class Billing {
     }
 
     async createPaymentMethod(): Promise<PaymentMethodData> {
-        const path = `/console/account/payment-methods`;
+        const path = `/account/payment-methods`;
         const params = {};
         const uri = new URL(this.client.config.endpoint + path);
         return await this.client.call(
@@ -253,7 +253,7 @@ export class Billing {
         providerMethodId: string,
         name: string
     ): Promise<PaymentMethodData> {
-        const path = `/console/account/payment-methods/${paymentMethodId}/provider`;
+        const path = `/account/payment-methods/${paymentMethodId}/provider`;
         const params = {
             paymentMethodId,
             providerMethodId,
@@ -275,7 +275,7 @@ export class Billing {
         expiryMonth: string,
         expiryYear: string
     ): Promise<PaymentMethodData> {
-        const path = `/console/account/payment-methods/${paymentMethodId}`;
+        const path = `/account/payment-methods/${paymentMethodId}`;
         const params = {
             paymentMethodId,
             expiryMonth,
@@ -293,7 +293,7 @@ export class Billing {
     }
 
     async deletePaymentMethod(paymentMethodId: string): Promise<PaymentMethodData> {
-        const path = `/console/account/payment-methods/${paymentMethodId}`;
+        const path = `/account/payment-methods/${paymentMethodId}`;
         const params = {
             paymentMethodId
         };
@@ -308,7 +308,7 @@ export class Billing {
         );
     }
     async setDefaultPaymentMethod(paymentMethodId: string): Promise<PaymentMethodData> {
-        const path = `/console/account/payment-methods/${paymentMethodId}/default`;
+        const path = `/account/payment-methods/${paymentMethodId}/default`;
         const params = {
             paymentMethodId
         };
@@ -327,7 +327,7 @@ export class Billing {
         organizationId: string,
         paymentMethodId: string
     ): Promise<PaymentMethodData> {
-        const path = `/console/account/payment-methods/${paymentMethodId}/setup`;
+        const path = `/account/payment-methods/${paymentMethodId}/setup`;
         const params = {
             organizationId,
             paymentMethodId
@@ -344,7 +344,7 @@ export class Billing {
     }
 
     async listAddresses(queries: string[] = []): Promise<AddressesList> {
-        const path = `/console/account/billing-addresses`;
+        const path = `/account/billing-addresses`;
         const params = {
             queries
         };
@@ -360,7 +360,7 @@ export class Billing {
     }
 
     async getAddress(billingAddressId: string): Promise<Address> {
-        const path = `/console/account/billing-addresses/${billingAddressId}`;
+        const path = `/account/billing-addresses/${billingAddressId}`;
         const params = {
             billingAddressId
         };
@@ -383,7 +383,7 @@ export class Billing {
         postalCode: string,
         addressLine2?: string
     ): Promise<Address> {
-        const path = `/console/account/billing-addresses`;
+        const path = `/account/billing-addresses`;
         const params = {
             country,
             streetAddress,
@@ -411,7 +411,7 @@ export class Billing {
         postalCode: string,
         addressLine2?: string
     ): Promise<Address> {
-        const path = `/console/account/billing-addresses/${billingAddressId}`;
+        const path = `/account/billing-addresses/${billingAddressId}`;
         const params = {
             billingAddressId,
             country,
@@ -432,7 +432,7 @@ export class Billing {
         );
     }
     async deleteAddress(billingAddressId: string): Promise<void> {
-        const path = `/console/account/billing-addresses/${billingAddressId}`;
+        const path = `/account/billing-addresses/${billingAddressId}`;
         const params = {
             billingAddressId
         };
@@ -448,7 +448,7 @@ export class Billing {
     }
 
     async listRegions(): Promise<RegionList> {
-        const path = `/console/regions`;
+        const path = `/regions`;
         const params = {};
         const uri = new URL(this.client.config.endpoint + path);
         return await this.client.call(
@@ -462,7 +462,7 @@ export class Billing {
     }
 
     async listPlans(): Promise<PlansInfo> {
-        const path = `/console/plans`;
+        const path = `/plans`;
         const params = {};
         const uri = new URL(this.client.config.endpoint + path);
         return await this.client.call(

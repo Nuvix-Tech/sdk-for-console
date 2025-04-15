@@ -24,7 +24,7 @@ export class ConsoleUsers {
    * @returns {Promise<Models.UserList<Preferences>>}
    */
   async list<Preferences extends Models.Preferences>(queries?: string[], search?: string): Promise<Models.UserList<Preferences>> {
-    const apiPath = '/console/users';
+    const apiPath = '/users';
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -63,7 +63,7 @@ export class ConsoleUsers {
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users';
+    const apiPath = '/users';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -116,7 +116,7 @@ export class ConsoleUsers {
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/users/argon2';
+    const apiPath = '/users/argon2';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -166,7 +166,7 @@ export class ConsoleUsers {
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/users/bcrypt';
+    const apiPath = '/users/bcrypt';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -205,7 +205,7 @@ export class ConsoleUsers {
    * @returns {Promise<Models.IdentityList>}
    */
   async listIdentities(queries?: string[], search?: string): Promise<Models.IdentityList> {
-    const apiPath = '/console/users/identities';
+    const apiPath = '/users/identities';
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -240,7 +240,7 @@ export class ConsoleUsers {
     if (typeof identityId === 'undefined') {
       throw new NuvixException('Missing required parameter: "identityId"');
     }
-    const apiPath = '/console/users/identities/{identityId}'.replace('{identityId}', identityId);
+    const apiPath = '/users/identities/{identityId}'.replace('{identityId}', identityId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -278,7 +278,7 @@ export class ConsoleUsers {
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/users/md5';
+    const apiPath = '/users/md5';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -328,7 +328,7 @@ export class ConsoleUsers {
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/users/phpass';
+    const apiPath = '/users/phpass';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -398,7 +398,7 @@ export class ConsoleUsers {
     if (typeof passwordLength === 'undefined') {
       throw new NuvixException('Missing required parameter: "passwordLength"');
     }
-    const apiPath = '/console/users/scrypt';
+    const apiPath = '/users/scrypt';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -475,7 +475,7 @@ export class ConsoleUsers {
     if (typeof passwordSignerKey === 'undefined') {
       throw new NuvixException('Missing required parameter: "passwordSignerKey"');
     }
-    const apiPath = '/console/users/scrypt-modified';
+    const apiPath = '/users/scrypt-modified';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -535,7 +535,7 @@ export class ConsoleUsers {
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/users/sha';
+    const apiPath = '/users/sha';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -575,7 +575,7 @@ export class ConsoleUsers {
    * @returns {Promise<Models.UsageUsers>}
    */
   async getUsage(range?: UserUsageRange): Promise<Models.UsageUsers> {
-    const apiPath = '/console/users/usage';
+    const apiPath = '/users/usage';
     const payload: Payload = {};
     if (typeof range !== 'undefined') {
       payload['range'] = range;
@@ -607,7 +607,7 @@ export class ConsoleUsers {
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -636,7 +636,7 @@ export class ConsoleUsers {
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -669,7 +669,7 @@ export class ConsoleUsers {
     if (typeof email === 'undefined') {
       throw new NuvixException('Missing required parameter: "email"');
     }
-    const apiPath = '/console/users/{userId}/email'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/email'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof email !== 'undefined') {
       payload['email'] = email;
@@ -703,7 +703,7 @@ export class ConsoleUsers {
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/jwts'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/jwts'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof sessionId !== 'undefined') {
       payload['sessionId'] = sessionId;
@@ -744,7 +744,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof labels === 'undefined') {
       throw new NuvixException('Missing required parameter: "labels"');
     }
-    const apiPath = '/console/users/{userId}/labels'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/labels'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof labels !== 'undefined') {
       payload['labels'] = labels;
@@ -777,7 +777,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/logs'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/logs'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -809,7 +809,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/memberships'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/memberships'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -842,7 +842,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof mfa === 'undefined') {
       throw new NuvixException('Missing required parameter: "mfa"');
     }
-    const apiPath = '/console/users/{userId}/mfa'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/mfa'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof mfa !== 'undefined') {
       payload['mfa'] = mfa;
@@ -878,7 +878,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof type === 'undefined') {
       throw new NuvixException('Missing required parameter: "type"');
     }
-    const apiPath = '/console/users/{userId}/mfa/authenticators/{type}'.replace('{userId}', userId).replace('{type}', type);
+    const apiPath = '/users/{userId}/mfa/authenticators/{type}'.replace('{userId}', userId).replace('{type}', type);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -907,7 +907,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/mfa/factors'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/mfa/factors'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -936,7 +936,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -965,7 +965,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -994,7 +994,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1027,7 +1027,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof name === 'undefined') {
       throw new NuvixException('Missing required parameter: "name"');
     }
-    const apiPath = '/console/users/{userId}/name'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/name'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof name !== 'undefined') {
       payload['name'] = name;
@@ -1063,7 +1063,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/users/{userId}/password'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/password'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof password !== 'undefined') {
       payload['password'] = password;
@@ -1099,7 +1099,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof number === 'undefined') {
       throw new NuvixException('Missing required parameter: "number"');
     }
-    const apiPath = '/console/users/{userId}/phone'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/phone'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof number !== 'undefined') {
       payload['number'] = number;
@@ -1131,7 +1131,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/prefs'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1164,7 +1164,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof prefs === 'undefined') {
       throw new NuvixException('Missing required parameter: "prefs"');
     }
-    const apiPath = '/console/users/{userId}/prefs'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof prefs !== 'undefined') {
       payload['prefs'] = prefs;
@@ -1196,7 +1196,7 @@ Labels can be used to grant access to resources. While teams are a way for user&
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/sessions'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1227,7 +1227,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/sessions'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1256,7 +1256,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/sessions'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1289,7 +1289,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof sessionId === 'undefined') {
       throw new NuvixException('Missing required parameter: "sessionId"');
     }
-    const apiPath = '/console/users/{userId}/sessions/{sessionId}'.replace('{userId}', userId).replace('{sessionId}', sessionId);
+    const apiPath = '/users/{userId}/sessions/{sessionId}'.replace('{userId}', userId).replace('{sessionId}', sessionId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1322,7 +1322,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof status === 'undefined') {
       throw new NuvixException('Missing required parameter: "status"');
     }
-    const apiPath = '/console/users/{userId}/status'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/status'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof status !== 'undefined') {
       payload['status'] = status;
@@ -1355,7 +1355,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/targets'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -1401,7 +1401,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof identifier === 'undefined') {
       throw new NuvixException('Missing required parameter: "identifier"');
     }
-    const apiPath = '/console/users/{userId}/targets'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof targetId !== 'undefined') {
       payload['targetId'] = targetId;
@@ -1449,7 +1449,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof targetId === 'undefined') {
       throw new NuvixException('Missing required parameter: "targetId"');
     }
-    const apiPath = '/console/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
+    const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1485,7 +1485,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof targetId === 'undefined') {
       throw new NuvixException('Missing required parameter: "targetId"');
     }
-    const apiPath = '/console/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
+    const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
     const payload: Payload = {};
     if (typeof identifier !== 'undefined') {
       payload['identifier'] = identifier;
@@ -1527,7 +1527,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof targetId === 'undefined') {
       throw new NuvixException('Missing required parameter: "targetId"');
     }
-    const apiPath = '/console/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
+    const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1559,7 +1559,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof userId === 'undefined') {
       throw new NuvixException('Missing required parameter: "userId"');
     }
-    const apiPath = '/console/users/{userId}/tokens'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/tokens'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof length !== 'undefined') {
       payload['length'] = length;
@@ -1598,7 +1598,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof emailVerification === 'undefined') {
       throw new NuvixException('Missing required parameter: "emailVerification"');
     }
-    const apiPath = '/console/users/{userId}/verification'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/verification'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof emailVerification !== 'undefined') {
       payload['emailVerification'] = emailVerification;
@@ -1634,7 +1634,7 @@ If you want to generate a token for a custom authentication flow, use the [POST 
     if (typeof phoneVerification === 'undefined') {
       throw new NuvixException('Missing required parameter: "phoneVerification"');
     }
-    const apiPath = '/console/users/{userId}/verification/phone'.replace('{userId}', userId);
+    const apiPath = '/users/{userId}/verification/phone'.replace('{userId}', userId);
     const payload: Payload = {};
     if (typeof phoneVerification !== 'undefined') {
       payload['phoneVerification'] = phoneVerification;

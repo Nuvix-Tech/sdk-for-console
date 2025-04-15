@@ -21,7 +21,7 @@ export class ConsoleAccount {
    * @returns {Promise<Models.User<Preferences>>}
    */
   async get<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>> {
-    const apiPath = '/console/account';
+    const apiPath = '/account';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -59,7 +59,7 @@ export class ConsoleAccount {
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/account';
+    const apiPath = '/account';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -96,7 +96,7 @@ export class ConsoleAccount {
    * @returns {Promise<{}>}
    */
   async delete(): Promise<{}> {
-    const apiPath = '/console/account';
+    const apiPath = '/account';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -121,7 +121,7 @@ export class ConsoleAccount {
    * @returns {Promise<Models.BillingAddressList>}
    */
   async listBillingAddresses(queries?: string[]): Promise<Models.BillingAddressList> {
-    const apiPath = '/console/account/billing-addresses';
+    const apiPath = '/account/billing-addresses';
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -166,7 +166,7 @@ export class ConsoleAccount {
     if (typeof state === 'undefined') {
       throw new NuvixException('Missing required parameter: "state"');
     }
-    const apiPath = '/console/account/billing-addresses';
+    const apiPath = '/account/billing-addresses';
     const payload: Payload = {};
     if (typeof country !== 'undefined') {
       payload['country'] = country;
@@ -212,7 +212,7 @@ export class ConsoleAccount {
     if (typeof billingAddressId === 'undefined') {
       throw new NuvixException('Missing required parameter: "billingAddressId"');
     }
-    const apiPath = '/console/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
+    const apiPath = '/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -258,7 +258,7 @@ export class ConsoleAccount {
     if (typeof state === 'undefined') {
       throw new NuvixException('Missing required parameter: "state"');
     }
-    const apiPath = '/console/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
+    const apiPath = '/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
     const payload: Payload = {};
     if (typeof country !== 'undefined') {
       payload['country'] = country;
@@ -304,7 +304,7 @@ export class ConsoleAccount {
     if (typeof billingAddressId === 'undefined') {
       throw new NuvixException('Missing required parameter: "billingAddressId"');
     }
-    const apiPath = '/console/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
+    const apiPath = '/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -339,7 +339,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/account/email';
+    const apiPath = '/account/email';
     const payload: Payload = {};
     if (typeof email !== 'undefined') {
       payload['email'] = email;
@@ -371,7 +371,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.IdentityList>}
    */
   async listIdentities(queries?: string[]): Promise<Models.IdentityList> {
-    const apiPath = '/console/account/identities';
+    const apiPath = '/account/identities';
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -403,7 +403,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof identityId === 'undefined') {
       throw new NuvixException('Missing required parameter: "identityId"');
     }
-    const apiPath = '/console/account/identities/{identityId}'.replace('{identityId}', identityId);
+    const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -428,7 +428,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.InvoiceList>}
    */
   async listInvoices(queries?: string[]): Promise<Models.InvoiceList> {
-    const apiPath = '/console/account/invoices';
+    const apiPath = '/account/invoices';
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -456,7 +456,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.Jwt>}
    */
   async createJWT(): Promise<Models.Jwt> {
-    const apiPath = '/console/account/jwts';
+    const apiPath = '/account/jwts';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -482,7 +482,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.LogList>}
    */
   async listLogs(queries?: string[]): Promise<Models.LogList> {
-    const apiPath = '/console/account/logs';
+    const apiPath = '/account/logs';
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -514,7 +514,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof mfa === 'undefined') {
       throw new NuvixException('Missing required parameter: "mfa"');
     }
-    const apiPath = '/console/account/mfa';
+    const apiPath = '/account/mfa';
     const payload: Payload = {};
     if (typeof mfa !== 'undefined') {
       payload['mfa'] = mfa;
@@ -546,7 +546,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof type === 'undefined') {
       throw new NuvixException('Missing required parameter: "type"');
     }
-    const apiPath = '/console/account/mfa/authenticators/{type}'.replace('{type}', type);
+    const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -579,7 +579,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof otp === 'undefined') {
       throw new NuvixException('Missing required parameter: "otp"');
     }
-    const apiPath = '/console/account/mfa/authenticators/{type}'.replace('{type}', type);
+    const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
     const payload: Payload = {};
     if (typeof otp !== 'undefined') {
       payload['otp'] = otp;
@@ -611,7 +611,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof type === 'undefined') {
       throw new NuvixException('Missing required parameter: "type"');
     }
-    const apiPath = '/console/account/mfa/authenticators/{type}'.replace('{type}', type);
+    const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -640,7 +640,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof factor === 'undefined') {
       throw new NuvixException('Missing required parameter: "factor"');
     }
-    const apiPath = '/console/account/mfa/challenge';
+    const apiPath = '/account/mfa/challenge';
     const payload: Payload = {};
     if (typeof factor !== 'undefined') {
       payload['factor'] = factor;
@@ -676,7 +676,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof otp === 'undefined') {
       throw new NuvixException('Missing required parameter: "otp"');
     }
-    const apiPath = '/console/account/mfa/challenge';
+    const apiPath = '/account/mfa/challenge';
     const payload: Payload = {};
     if (typeof challengeId !== 'undefined') {
       payload['challengeId'] = challengeId;
@@ -707,7 +707,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.MfaFactors>}
    */
   async listMfaFactors(): Promise<Models.MfaFactors> {
-    const apiPath = '/console/account/mfa/factors';
+    const apiPath = '/account/mfa/factors';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -732,7 +732,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.MfaRecoveryCodes>}
    */
   async getMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
-    const apiPath = '/console/account/mfa/recovery-codes';
+    const apiPath = '/account/mfa/recovery-codes';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -757,7 +757,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.MfaRecoveryCodes>}
    */
   async createMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
-    const apiPath = '/console/account/mfa/recovery-codes';
+    const apiPath = '/account/mfa/recovery-codes';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -782,7 +782,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.MfaRecoveryCodes>}
    */
   async updateMfaRecoveryCodes(): Promise<Models.MfaRecoveryCodes> {
-    const apiPath = '/console/account/mfa/recovery-codes';
+    const apiPath = '/account/mfa/recovery-codes';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -811,7 +811,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof name === 'undefined') {
       throw new NuvixException('Missing required parameter: "name"');
     }
-    const apiPath = '/console/account/name';
+    const apiPath = '/account/name';
     const payload: Payload = {};
     if (typeof name !== 'undefined') {
       payload['name'] = name;
@@ -844,7 +844,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/account/password';
+    const apiPath = '/account/password';
     const payload: Payload = {};
     if (typeof password !== 'undefined') {
       payload['password'] = password;
@@ -875,7 +875,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.PaymentMethodList>}
    */
   async listPaymentMethods(queries?: string[]): Promise<Models.PaymentMethodList> {
-    const apiPath = '/console/account/payment-methods';
+    const apiPath = '/account/payment-methods';
     const payload: Payload = {};
     if (typeof queries !== 'undefined') {
       payload['queries'] = queries;
@@ -902,7 +902,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Models.PaymentMethod>}
    */
   async createPaymentMethod(): Promise<Models.PaymentMethod> {
-    const apiPath = '/console/account/payment-methods';
+    const apiPath = '/account/payment-methods';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -930,7 +930,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof paymentMethodId === 'undefined') {
       throw new NuvixException('Missing required parameter: "paymentMethodId"');
     }
-    const apiPath = '/console/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
+    const apiPath = '/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -966,7 +966,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof expiryYear === 'undefined') {
       throw new NuvixException('Missing required parameter: "expiryYear"');
     }
-    const apiPath = '/console/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
+    const apiPath = '/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
     const payload: Payload = {};
     if (typeof expiryMonth !== 'undefined') {
       payload['expiryMonth'] = expiryMonth;
@@ -1000,7 +1000,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof paymentMethodId === 'undefined') {
       throw new NuvixException('Missing required parameter: "paymentMethodId"');
     }
-    const apiPath = '/console/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
+    const apiPath = '/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1036,7 +1036,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof name === 'undefined') {
       throw new NuvixException('Missing required parameter: "name"');
     }
-    const apiPath = '/console/account/payment-methods/{paymentMethodId}/provider'.replace('{paymentMethodId}', paymentMethodId);
+    const apiPath = '/account/payment-methods/{paymentMethodId}/provider'.replace('{paymentMethodId}', paymentMethodId);
     const payload: Payload = {};
     if (typeof providerMethodId !== 'undefined') {
       payload['providerMethodId'] = providerMethodId;
@@ -1070,7 +1070,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof paymentMethodId === 'undefined') {
       throw new NuvixException('Missing required parameter: "paymentMethodId"');
     }
-    const apiPath = '/console/account/payment-methods/{paymentMethodId}/setup'.replace('{paymentMethodId}', paymentMethodId);
+    const apiPath = '/account/payment-methods/{paymentMethodId}/setup'.replace('{paymentMethodId}', paymentMethodId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1103,7 +1103,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/account/phone';
+    const apiPath = '/account/phone';
     const payload: Payload = {};
     if (typeof phone !== 'undefined') {
       payload['phone'] = phone;
@@ -1134,7 +1134,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
    * @returns {Promise<Preferences>}
    */
   async getPrefs<Preferences extends Models.Preferences>(): Promise<Preferences> {
-    const apiPath = '/console/account/prefs';
+    const apiPath = '/account/prefs';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1163,7 +1163,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof prefs === 'undefined') {
       throw new NuvixException('Missing required parameter: "prefs"');
     }
-    const apiPath = '/console/account/prefs';
+    const apiPath = '/account/prefs';
     const payload: Payload = {};
     if (typeof prefs !== 'undefined') {
       payload['prefs'] = prefs;
@@ -1199,7 +1199,7 @@ This endpoint can also be used to convert an anonymous account to a normal one, 
     if (typeof url === 'undefined') {
       throw new NuvixException('Missing required parameter: "url"');
     }
-    const apiPath = '/console/account/recovery';
+    const apiPath = '/account/recovery';
     const payload: Payload = {};
     if (typeof email !== 'undefined') {
       payload['email'] = email;
@@ -1244,7 +1244,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/account/recovery';
+    const apiPath = '/account/recovery';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -1278,7 +1278,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
    * @returns {Promise<Models.SessionList>}
    */
   async listSessions(): Promise<Models.SessionList> {
-    const apiPath = '/console/account/sessions';
+    const apiPath = '/account/sessions';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1303,7 +1303,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
    * @returns {Promise<{}>}
    */
   async deleteSessions(): Promise<{}> {
-    const apiPath = '/console/account/sessions';
+    const apiPath = '/account/sessions';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1328,7 +1328,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
    * @returns {Promise<Models.Session>}
    */
   async createAnonymousSession(): Promise<Models.Session> {
-    const apiPath = '/console/account/sessions/anonymous';
+    const apiPath = '/account/sessions/anonymous';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1363,7 +1363,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof password === 'undefined') {
       throw new NuvixException('Missing required parameter: "password"');
     }
-    const apiPath = '/console/account/sessions/email';
+    const apiPath = '/account/sessions/email';
     const payload: Payload = {};
     if (typeof email !== 'undefined') {
       payload['email'] = email;
@@ -1402,7 +1402,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof secret === 'undefined') {
       throw new NuvixException('Missing required parameter: "secret"');
     }
-    const apiPath = '/console/account/sessions/magic-url';
+    const apiPath = '/account/sessions/magic-url';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -1445,7 +1445,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof provider === 'undefined') {
       throw new NuvixException('Missing required parameter: "provider"');
     }
-    const apiPath = '/console/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
+    const apiPath = '/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
     const payload: Payload = {};
     if (typeof success !== 'undefined') {
       payload['success'] = success;
@@ -1491,7 +1491,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof secret === 'undefined') {
       throw new NuvixException('Missing required parameter: "secret"');
     }
-    const apiPath = '/console/account/sessions/phone';
+    const apiPath = '/account/sessions/phone';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -1530,7 +1530,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof secret === 'undefined') {
       throw new NuvixException('Missing required parameter: "secret"');
     }
-    const apiPath = '/console/account/sessions/token';
+    const apiPath = '/account/sessions/token';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -1565,7 +1565,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof sessionId === 'undefined') {
       throw new NuvixException('Missing required parameter: "sessionId"');
     }
-    const apiPath = '/console/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
+    const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1594,7 +1594,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof sessionId === 'undefined') {
       throw new NuvixException('Missing required parameter: "sessionId"');
     }
-    const apiPath = '/console/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
+    const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1623,7 +1623,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof sessionId === 'undefined') {
       throw new NuvixException('Missing required parameter: "sessionId"');
     }
-    const apiPath = '/console/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
+    const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1648,7 +1648,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
    * @returns {Promise<Models.User<Preferences>>}
    */
   async updateStatus<Preferences extends Models.Preferences>(): Promise<Models.User<Preferences>> {
-    const apiPath = '/console/account/status';
+    const apiPath = '/account/status';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1681,7 +1681,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof identifier === 'undefined') {
       throw new NuvixException('Missing required parameter: "identifier"');
     }
-    const apiPath = '/console/account/targets/push';
+    const apiPath = '/account/targets/push';
     const payload: Payload = {};
     if (typeof targetId !== 'undefined') {
       payload['targetId'] = targetId;
@@ -1722,7 +1722,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof identifier === 'undefined') {
       throw new NuvixException('Missing required parameter: "identifier"');
     }
-    const apiPath = '/console/account/targets/{targetId}/push'.replace('{targetId}', targetId);
+    const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
     const payload: Payload = {};
     if (typeof identifier !== 'undefined') {
       payload['identifier'] = identifier;
@@ -1753,7 +1753,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof targetId === 'undefined') {
       throw new NuvixException('Missing required parameter: "targetId"');
     }
-    const apiPath = '/console/account/targets/{targetId}/push'.replace('{targetId}', targetId);
+    const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1789,7 +1789,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof email === 'undefined') {
       throw new NuvixException('Missing required parameter: "email"');
     }
-    const apiPath = '/console/account/tokens/email';
+    const apiPath = '/account/tokens/email';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -1836,7 +1836,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof email === 'undefined') {
       throw new NuvixException('Missing required parameter: "email"');
     }
-    const apiPath = '/console/account/tokens/magic-url';
+    const apiPath = '/account/tokens/magic-url';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -1884,7 +1884,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof provider === 'undefined') {
       throw new NuvixException('Missing required parameter: "provider"');
     }
-    const apiPath = '/console/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
+    const apiPath = '/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
     const payload: Payload = {};
     if (typeof success !== 'undefined') {
       payload['success'] = success;
@@ -1932,7 +1932,7 @@ A user is limited to 10 active sessions at a time by default. [Learn more about 
     if (typeof phone === 'undefined') {
       throw new NuvixException('Missing required parameter: "phone"');
     }
-    const apiPath = '/console/account/tokens/phone';
+    const apiPath = '/account/tokens/phone';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -1970,7 +1970,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
     if (typeof url === 'undefined') {
       throw new NuvixException('Missing required parameter: "url"');
     }
-    const apiPath = '/console/account/verification';
+    const apiPath = '/account/verification';
     const payload: Payload = {};
     if (typeof url !== 'undefined') {
       payload['url'] = url;
@@ -2006,7 +2006,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
     if (typeof secret === 'undefined') {
       throw new NuvixException('Missing required parameter: "secret"');
     }
-    const apiPath = '/console/account/verification';
+    const apiPath = '/account/verification';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;
@@ -2037,7 +2037,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
    * @returns {Promise<Models.Token>}
    */
   async createPhoneVerification(): Promise<Models.Token> {
-    const apiPath = '/console/account/verification/phone';
+    const apiPath = '/account/verification/phone';
     const payload: Payload = {};
     const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -2070,7 +2070,7 @@ Please note that in order to avoid a [Redirect Attack](https://github.com/OWASP/
     if (typeof secret === 'undefined') {
       throw new NuvixException('Missing required parameter: "secret"');
     }
-    const apiPath = '/console/account/verification/phone';
+    const apiPath = '/account/verification/phone';
     const payload: Payload = {};
     if (typeof userId !== 'undefined') {
       payload['userId'] = userId;

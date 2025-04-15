@@ -21,7 +21,7 @@ export class Console {
         if (typeof campaignId === 'undefined') {
             throw new NuvixException('Missing required parameter: "campaignId"');
         }
-        const apiPath = '/console/campaigns/{campaignId}'.replace('{campaignId}', campaignId);
+        const apiPath = '/campaigns/{campaignId}'.replace('{campaignId}', campaignId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -49,7 +49,7 @@ export class Console {
         if (typeof couponId === 'undefined') {
             throw new NuvixException('Missing required parameter: "couponId"');
         }
-        const apiPath = '/console/coupons/{couponId}'.replace('{couponId}', couponId);
+        const apiPath = '/coupons/{couponId}'.replace('{couponId}', couponId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -73,7 +73,7 @@ export class Console {
      * @returns {Promise<Models.BillingPlanList>}
      */
     async plans(): Promise<Models.BillingPlanList> {
-        const apiPath = '/console/plans';
+        const apiPath = '/plans';
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -97,7 +97,7 @@ export class Console {
      * @returns {Promise<Models.ConsoleRegionList>}
      */
     async regions(): Promise<Models.ConsoleRegionList> {
-        const apiPath = '/console/regions';
+        const apiPath = '/regions';
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -126,7 +126,7 @@ export class Console {
      * @returns {Promise<{}>}
      */
     async createSource(ref?: string, referrer?: string, utmSource?: string, utmCampaign?: string, utmMedium?: string): Promise<{}> {
-        const apiPath = '/console/sources';
+        const apiPath = '/sources';
         const payload: Payload = {};
         if (typeof ref !== 'undefined') {
             payload['ref'] = ref;
@@ -166,7 +166,7 @@ export class Console {
      * @returns {Promise<Models.ConsoleVariables>}
      */
     async variables(): Promise<Models.ConsoleVariables> {
-        const apiPath = '/console/variables';
+        const apiPath = '/variables';
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 

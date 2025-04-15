@@ -21,7 +21,7 @@ export class Assistant {
         if (typeof prompt === 'undefined') {
             throw new NuvixException('Missing required parameter: "prompt"');
         }
-        const apiPath = '/console/assistant';
+        const apiPath = '/assistant';
         const payload: Payload = {};
         if (typeof prompt !== 'undefined') {
             payload['prompt'] = prompt;

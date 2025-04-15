@@ -3073,7 +3073,7 @@ class Assistant {
             if (typeof prompt === 'undefined') {
                 throw new NuvixException('Missing required parameter: "prompt"');
             }
-            const apiPath = '/console/assistant';
+            const apiPath = '/assistant';
             const payload = {};
             if (typeof prompt !== 'undefined') {
                 payload['prompt'] = prompt;
@@ -3104,7 +3104,7 @@ class Console {
             if (typeof campaignId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "campaignId"');
             }
-            const apiPath = '/console/campaigns/{campaignId}'.replace('{campaignId}', campaignId);
+            const apiPath = '/campaigns/{campaignId}'.replace('{campaignId}', campaignId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3126,7 +3126,7 @@ class Console {
             if (typeof couponId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "couponId"');
             }
-            const apiPath = '/console/coupons/{couponId}'.replace('{couponId}', couponId);
+            const apiPath = '/coupons/{couponId}'.replace('{couponId}', couponId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3144,7 +3144,7 @@ class Console {
      */
     plans() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/plans';
+            const apiPath = '/plans';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3162,7 +3162,7 @@ class Console {
      */
     regions() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/regions';
+            const apiPath = '/regions';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3185,7 +3185,7 @@ class Console {
      */
     createSource(ref, referrer, utmSource, utmCampaign, utmMedium) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/sources';
+            const apiPath = '/sources';
             const payload = {};
             if (typeof ref !== 'undefined') {
                 payload['ref'] = ref;
@@ -3219,7 +3219,7 @@ class Console {
      */
     variables() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/variables';
+            const apiPath = '/variables';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3244,7 +3244,7 @@ class ConsoleAccount {
      */
     get() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account';
+            const apiPath = '/account';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3276,7 +3276,7 @@ class ConsoleAccount {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/account';
+            const apiPath = '/account';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -3307,7 +3307,7 @@ class ConsoleAccount {
      */
     delete() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account';
+            const apiPath = '/account';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3326,7 +3326,7 @@ class ConsoleAccount {
      */
     listBillingAddresses(queries) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/billing-addresses';
+            const apiPath = '/account/billing-addresses';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -3365,7 +3365,7 @@ class ConsoleAccount {
             if (typeof state === 'undefined') {
                 throw new NuvixException('Missing required parameter: "state"');
             }
-            const apiPath = '/console/account/billing-addresses';
+            const apiPath = '/account/billing-addresses';
             const payload = {};
             if (typeof country !== 'undefined') {
                 payload['country'] = country;
@@ -3405,7 +3405,7 @@ class ConsoleAccount {
             if (typeof billingAddressId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "billingAddressId"');
             }
-            const apiPath = '/console/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
+            const apiPath = '/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3445,7 +3445,7 @@ class ConsoleAccount {
             if (typeof state === 'undefined') {
                 throw new NuvixException('Missing required parameter: "state"');
             }
-            const apiPath = '/console/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
+            const apiPath = '/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
             const payload = {};
             if (typeof country !== 'undefined') {
                 payload['country'] = country;
@@ -3485,7 +3485,7 @@ class ConsoleAccount {
             if (typeof billingAddressId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "billingAddressId"');
             }
-            const apiPath = '/console/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
+            const apiPath = '/account/billing-addresses/{billingAddressId}'.replace('{billingAddressId}', billingAddressId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3514,7 +3514,7 @@ class ConsoleAccount {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/account/email';
+            const apiPath = '/account/email';
             const payload = {};
             if (typeof email !== 'undefined') {
                 payload['email'] = email;
@@ -3540,7 +3540,7 @@ class ConsoleAccount {
      */
     listIdentities(queries) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/identities';
+            const apiPath = '/account/identities';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -3566,7 +3566,7 @@ class ConsoleAccount {
             if (typeof identityId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "identityId"');
             }
-            const apiPath = '/console/account/identities/{identityId}'.replace('{identityId}', identityId);
+            const apiPath = '/account/identities/{identityId}'.replace('{identityId}', identityId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3585,7 +3585,7 @@ class ConsoleAccount {
      */
     listInvoices(queries) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/invoices';
+            const apiPath = '/account/invoices';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -3607,7 +3607,7 @@ class ConsoleAccount {
      */
     createJWT() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/jwts';
+            const apiPath = '/account/jwts';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3627,7 +3627,7 @@ class ConsoleAccount {
      */
     listLogs(queries) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/logs';
+            const apiPath = '/account/logs';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -3653,7 +3653,7 @@ class ConsoleAccount {
             if (typeof mfa === 'undefined') {
                 throw new NuvixException('Missing required parameter: "mfa"');
             }
-            const apiPath = '/console/account/mfa';
+            const apiPath = '/account/mfa';
             const payload = {};
             if (typeof mfa !== 'undefined') {
                 payload['mfa'] = mfa;
@@ -3679,7 +3679,7 @@ class ConsoleAccount {
             if (typeof type === 'undefined') {
                 throw new NuvixException('Missing required parameter: "type"');
             }
-            const apiPath = '/console/account/mfa/authenticators/{type}'.replace('{type}', type);
+            const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3706,7 +3706,7 @@ class ConsoleAccount {
             if (typeof otp === 'undefined') {
                 throw new NuvixException('Missing required parameter: "otp"');
             }
-            const apiPath = '/console/account/mfa/authenticators/{type}'.replace('{type}', type);
+            const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
             if (typeof otp !== 'undefined') {
                 payload['otp'] = otp;
@@ -3732,7 +3732,7 @@ class ConsoleAccount {
             if (typeof type === 'undefined') {
                 throw new NuvixException('Missing required parameter: "type"');
             }
-            const apiPath = '/console/account/mfa/authenticators/{type}'.replace('{type}', type);
+            const apiPath = '/account/mfa/authenticators/{type}'.replace('{type}', type);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3755,7 +3755,7 @@ class ConsoleAccount {
             if (typeof factor === 'undefined') {
                 throw new NuvixException('Missing required parameter: "factor"');
             }
-            const apiPath = '/console/account/mfa/challenge';
+            const apiPath = '/account/mfa/challenge';
             const payload = {};
             if (typeof factor !== 'undefined') {
                 payload['factor'] = factor;
@@ -3785,7 +3785,7 @@ class ConsoleAccount {
             if (typeof otp === 'undefined') {
                 throw new NuvixException('Missing required parameter: "otp"');
             }
-            const apiPath = '/console/account/mfa/challenge';
+            const apiPath = '/account/mfa/challenge';
             const payload = {};
             if (typeof challengeId !== 'undefined') {
                 payload['challengeId'] = challengeId;
@@ -3810,7 +3810,7 @@ class ConsoleAccount {
      */
     listMfaFactors() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/mfa/factors';
+            const apiPath = '/account/mfa/factors';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3829,7 +3829,7 @@ class ConsoleAccount {
      */
     getMfaRecoveryCodes() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/mfa/recovery-codes';
+            const apiPath = '/account/mfa/recovery-codes';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3848,7 +3848,7 @@ class ConsoleAccount {
      */
     createMfaRecoveryCodes() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/mfa/recovery-codes';
+            const apiPath = '/account/mfa/recovery-codes';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3867,7 +3867,7 @@ class ConsoleAccount {
      */
     updateMfaRecoveryCodes() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/mfa/recovery-codes';
+            const apiPath = '/account/mfa/recovery-codes';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3890,7 +3890,7 @@ class ConsoleAccount {
             if (typeof name === 'undefined') {
                 throw new NuvixException('Missing required parameter: "name"');
             }
-            const apiPath = '/console/account/name';
+            const apiPath = '/account/name';
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -3917,7 +3917,7 @@ class ConsoleAccount {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/account/password';
+            const apiPath = '/account/password';
             const payload = {};
             if (typeof password !== 'undefined') {
                 payload['password'] = password;
@@ -3942,7 +3942,7 @@ class ConsoleAccount {
      */
     listPaymentMethods(queries) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/payment-methods';
+            const apiPath = '/account/payment-methods';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -3963,7 +3963,7 @@ class ConsoleAccount {
      */
     createPaymentMethod() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/payment-methods';
+            const apiPath = '/account/payment-methods';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -3985,7 +3985,7 @@ class ConsoleAccount {
             if (typeof paymentMethodId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "paymentMethodId"');
             }
-            const apiPath = '/console/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
+            const apiPath = '/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4015,7 +4015,7 @@ class ConsoleAccount {
             if (typeof expiryYear === 'undefined') {
                 throw new NuvixException('Missing required parameter: "expiryYear"');
             }
-            const apiPath = '/console/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
+            const apiPath = '/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
             const payload = {};
             if (typeof expiryMonth !== 'undefined') {
                 payload['expiryMonth'] = expiryMonth;
@@ -4043,7 +4043,7 @@ class ConsoleAccount {
             if (typeof paymentMethodId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "paymentMethodId"');
             }
-            const apiPath = '/console/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
+            const apiPath = '/account/payment-methods/{paymentMethodId}'.replace('{paymentMethodId}', paymentMethodId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4073,7 +4073,7 @@ class ConsoleAccount {
             if (typeof name === 'undefined') {
                 throw new NuvixException('Missing required parameter: "name"');
             }
-            const apiPath = '/console/account/payment-methods/{paymentMethodId}/provider'.replace('{paymentMethodId}', paymentMethodId);
+            const apiPath = '/account/payment-methods/{paymentMethodId}/provider'.replace('{paymentMethodId}', paymentMethodId);
             const payload = {};
             if (typeof providerMethodId !== 'undefined') {
                 payload['providerMethodId'] = providerMethodId;
@@ -4101,7 +4101,7 @@ class ConsoleAccount {
             if (typeof paymentMethodId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "paymentMethodId"');
             }
-            const apiPath = '/console/account/payment-methods/{paymentMethodId}/setup'.replace('{paymentMethodId}', paymentMethodId);
+            const apiPath = '/account/payment-methods/{paymentMethodId}/setup'.replace('{paymentMethodId}', paymentMethodId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4128,7 +4128,7 @@ class ConsoleAccount {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/account/phone';
+            const apiPath = '/account/phone';
             const payload = {};
             if (typeof phone !== 'undefined') {
                 payload['phone'] = phone;
@@ -4153,7 +4153,7 @@ class ConsoleAccount {
      */
     getPrefs() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/prefs';
+            const apiPath = '/account/prefs';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4176,7 +4176,7 @@ class ConsoleAccount {
             if (typeof prefs === 'undefined') {
                 throw new NuvixException('Missing required parameter: "prefs"');
             }
-            const apiPath = '/console/account/prefs';
+            const apiPath = '/account/prefs';
             const payload = {};
             if (typeof prefs !== 'undefined') {
                 payload['prefs'] = prefs;
@@ -4206,7 +4206,7 @@ class ConsoleAccount {
             if (typeof url === 'undefined') {
                 throw new NuvixException('Missing required parameter: "url"');
             }
-            const apiPath = '/console/account/recovery';
+            const apiPath = '/account/recovery';
             const payload = {};
             if (typeof email !== 'undefined') {
                 payload['email'] = email;
@@ -4245,7 +4245,7 @@ class ConsoleAccount {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/account/recovery';
+            const apiPath = '/account/recovery';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4273,7 +4273,7 @@ class ConsoleAccount {
      */
     listSessions() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/sessions';
+            const apiPath = '/account/sessions';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4292,7 +4292,7 @@ class ConsoleAccount {
      */
     deleteSessions() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/sessions';
+            const apiPath = '/account/sessions';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4311,7 +4311,7 @@ class ConsoleAccount {
      */
     createAnonymousSession() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/sessions/anonymous';
+            const apiPath = '/account/sessions/anonymous';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4340,7 +4340,7 @@ class ConsoleAccount {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/account/sessions/email';
+            const apiPath = '/account/sessions/email';
             const payload = {};
             if (typeof email !== 'undefined') {
                 payload['email'] = email;
@@ -4373,7 +4373,7 @@ class ConsoleAccount {
             if (typeof secret === 'undefined') {
                 throw new NuvixException('Missing required parameter: "secret"');
             }
-            const apiPath = '/console/account/sessions/magic-url';
+            const apiPath = '/account/sessions/magic-url';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4410,7 +4410,7 @@ class ConsoleAccount {
             if (typeof provider === 'undefined') {
                 throw new NuvixException('Missing required parameter: "provider"');
             }
-            const apiPath = '/console/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
+            const apiPath = '/account/sessions/oauth2/{provider}'.replace('{provider}', provider);
             const payload = {};
             if (typeof success !== 'undefined') {
                 payload['success'] = success;
@@ -4453,7 +4453,7 @@ class ConsoleAccount {
             if (typeof secret === 'undefined') {
                 throw new NuvixException('Missing required parameter: "secret"');
             }
-            const apiPath = '/console/account/sessions/phone';
+            const apiPath = '/account/sessions/phone';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4486,7 +4486,7 @@ class ConsoleAccount {
             if (typeof secret === 'undefined') {
                 throw new NuvixException('Missing required parameter: "secret"');
             }
-            const apiPath = '/console/account/sessions/token';
+            const apiPath = '/account/sessions/token';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4515,7 +4515,7 @@ class ConsoleAccount {
             if (typeof sessionId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "sessionId"');
             }
-            const apiPath = '/console/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
+            const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4538,7 +4538,7 @@ class ConsoleAccount {
             if (typeof sessionId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "sessionId"');
             }
-            const apiPath = '/console/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
+            const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4561,7 +4561,7 @@ class ConsoleAccount {
             if (typeof sessionId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "sessionId"');
             }
-            const apiPath = '/console/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
+            const apiPath = '/account/sessions/{sessionId}'.replace('{sessionId}', sessionId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4580,7 +4580,7 @@ class ConsoleAccount {
      */
     updateStatus() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/status';
+            const apiPath = '/account/status';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4607,7 +4607,7 @@ class ConsoleAccount {
             if (typeof identifier === 'undefined') {
                 throw new NuvixException('Missing required parameter: "identifier"');
             }
-            const apiPath = '/console/account/targets/push';
+            const apiPath = '/account/targets/push';
             const payload = {};
             if (typeof targetId !== 'undefined') {
                 payload['targetId'] = targetId;
@@ -4642,7 +4642,7 @@ class ConsoleAccount {
             if (typeof identifier === 'undefined') {
                 throw new NuvixException('Missing required parameter: "identifier"');
             }
-            const apiPath = '/console/account/targets/{targetId}/push'.replace('{targetId}', targetId);
+            const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
             const payload = {};
             if (typeof identifier !== 'undefined') {
                 payload['identifier'] = identifier;
@@ -4667,7 +4667,7 @@ class ConsoleAccount {
             if (typeof targetId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "targetId"');
             }
-            const apiPath = '/console/account/targets/{targetId}/push'.replace('{targetId}', targetId);
+            const apiPath = '/account/targets/{targetId}/push'.replace('{targetId}', targetId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4697,7 +4697,7 @@ class ConsoleAccount {
             if (typeof email === 'undefined') {
                 throw new NuvixException('Missing required parameter: "email"');
             }
-            const apiPath = '/console/account/tokens/email';
+            const apiPath = '/account/tokens/email';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4738,7 +4738,7 @@ class ConsoleAccount {
             if (typeof email === 'undefined') {
                 throw new NuvixException('Missing required parameter: "email"');
             }
-            const apiPath = '/console/account/tokens/magic-url';
+            const apiPath = '/account/tokens/magic-url';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4780,7 +4780,7 @@ class ConsoleAccount {
             if (typeof provider === 'undefined') {
                 throw new NuvixException('Missing required parameter: "provider"');
             }
-            const apiPath = '/console/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
+            const apiPath = '/account/tokens/oauth2/{provider}'.replace('{provider}', provider);
             const payload = {};
             if (typeof success !== 'undefined') {
                 payload['success'] = success;
@@ -4825,7 +4825,7 @@ class ConsoleAccount {
             if (typeof phone === 'undefined') {
                 throw new NuvixException('Missing required parameter: "phone"');
             }
-            const apiPath = '/console/account/tokens/phone';
+            const apiPath = '/account/tokens/phone';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4857,7 +4857,7 @@ class ConsoleAccount {
             if (typeof url === 'undefined') {
                 throw new NuvixException('Missing required parameter: "url"');
             }
-            const apiPath = '/console/account/verification';
+            const apiPath = '/account/verification';
             const payload = {};
             if (typeof url !== 'undefined') {
                 payload['url'] = url;
@@ -4887,7 +4887,7 @@ class ConsoleAccount {
             if (typeof secret === 'undefined') {
                 throw new NuvixException('Missing required parameter: "secret"');
             }
-            const apiPath = '/console/account/verification';
+            const apiPath = '/account/verification';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4912,7 +4912,7 @@ class ConsoleAccount {
      */
     createPhoneVerification() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/account/verification/phone';
+            const apiPath = '/account/verification/phone';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -4939,7 +4939,7 @@ class ConsoleAccount {
             if (typeof secret === 'undefined') {
                 throw new NuvixException('Missing required parameter: "secret"');
             }
-            const apiPath = '/console/account/verification/phone';
+            const apiPath = '/account/verification/phone';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -4972,7 +4972,7 @@ class ConsoleUsers {
      */
     list(queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/users';
+            const apiPath = '/users';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -5005,7 +5005,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users';
+            const apiPath = '/users';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5052,7 +5052,7 @@ class ConsoleUsers {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/users/argon2';
+            const apiPath = '/users/argon2';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5096,7 +5096,7 @@ class ConsoleUsers {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/users/bcrypt';
+            const apiPath = '/users/bcrypt';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5129,7 +5129,7 @@ class ConsoleUsers {
      */
     listIdentities(queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/users/identities';
+            const apiPath = '/users/identities';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -5158,7 +5158,7 @@ class ConsoleUsers {
             if (typeof identityId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "identityId"');
             }
-            const apiPath = '/console/users/identities/{identityId}'.replace('{identityId}', identityId);
+            const apiPath = '/users/identities/{identityId}'.replace('{identityId}', identityId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5190,7 +5190,7 @@ class ConsoleUsers {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/users/md5';
+            const apiPath = '/users/md5';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5234,7 +5234,7 @@ class ConsoleUsers {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/users/phpass';
+            const apiPath = '/users/phpass';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5298,7 +5298,7 @@ class ConsoleUsers {
             if (typeof passwordLength === 'undefined') {
                 throw new NuvixException('Missing required parameter: "passwordLength"');
             }
-            const apiPath = '/console/users/scrypt';
+            const apiPath = '/users/scrypt';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5369,7 +5369,7 @@ class ConsoleUsers {
             if (typeof passwordSignerKey === 'undefined') {
                 throw new NuvixException('Missing required parameter: "passwordSignerKey"');
             }
-            const apiPath = '/console/users/scrypt-modified';
+            const apiPath = '/users/scrypt-modified';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5423,7 +5423,7 @@ class ConsoleUsers {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/users/sha';
+            const apiPath = '/users/sha';
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -5457,7 +5457,7 @@ class ConsoleUsers {
      */
     getUsage(range) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/users/usage';
+            const apiPath = '/users/usage';
             const payload = {};
             if (typeof range !== 'undefined') {
                 payload['range'] = range;
@@ -5483,7 +5483,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5506,7 +5506,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5533,7 +5533,7 @@ class ConsoleUsers {
             if (typeof email === 'undefined') {
                 throw new NuvixException('Missing required parameter: "email"');
             }
-            const apiPath = '/console/users/{userId}/email'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/email'.replace('{userId}', userId);
             const payload = {};
             if (typeof email !== 'undefined') {
                 payload['email'] = email;
@@ -5561,7 +5561,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/jwts'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/jwts'.replace('{userId}', userId);
             const payload = {};
             if (typeof sessionId !== 'undefined') {
                 payload['sessionId'] = sessionId;
@@ -5596,7 +5596,7 @@ class ConsoleUsers {
             if (typeof labels === 'undefined') {
                 throw new NuvixException('Missing required parameter: "labels"');
             }
-            const apiPath = '/console/users/{userId}/labels'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/labels'.replace('{userId}', userId);
             const payload = {};
             if (typeof labels !== 'undefined') {
                 payload['labels'] = labels;
@@ -5623,7 +5623,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/logs'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/logs'.replace('{userId}', userId);
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -5649,7 +5649,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/memberships'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/memberships'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5676,7 +5676,7 @@ class ConsoleUsers {
             if (typeof mfa === 'undefined') {
                 throw new NuvixException('Missing required parameter: "mfa"');
             }
-            const apiPath = '/console/users/{userId}/mfa'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/mfa'.replace('{userId}', userId);
             const payload = {};
             if (typeof mfa !== 'undefined') {
                 payload['mfa'] = mfa;
@@ -5706,7 +5706,7 @@ class ConsoleUsers {
             if (typeof type === 'undefined') {
                 throw new NuvixException('Missing required parameter: "type"');
             }
-            const apiPath = '/console/users/{userId}/mfa/authenticators/{type}'.replace('{userId}', userId).replace('{type}', type);
+            const apiPath = '/users/{userId}/mfa/authenticators/{type}'.replace('{userId}', userId).replace('{type}', type);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5729,7 +5729,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/mfa/factors'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/mfa/factors'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5752,7 +5752,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5775,7 +5775,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5798,7 +5798,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/mfa/recovery-codes'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5825,7 +5825,7 @@ class ConsoleUsers {
             if (typeof name === 'undefined') {
                 throw new NuvixException('Missing required parameter: "name"');
             }
-            const apiPath = '/console/users/{userId}/name'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/name'.replace('{userId}', userId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -5855,7 +5855,7 @@ class ConsoleUsers {
             if (typeof password === 'undefined') {
                 throw new NuvixException('Missing required parameter: "password"');
             }
-            const apiPath = '/console/users/{userId}/password'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/password'.replace('{userId}', userId);
             const payload = {};
             if (typeof password !== 'undefined') {
                 payload['password'] = password;
@@ -5885,7 +5885,7 @@ class ConsoleUsers {
             if (typeof number === 'undefined') {
                 throw new NuvixException('Missing required parameter: "number"');
             }
-            const apiPath = '/console/users/{userId}/phone'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/phone'.replace('{userId}', userId);
             const payload = {};
             if (typeof number !== 'undefined') {
                 payload['number'] = number;
@@ -5911,7 +5911,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/prefs'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5938,7 +5938,7 @@ class ConsoleUsers {
             if (typeof prefs === 'undefined') {
                 throw new NuvixException('Missing required parameter: "prefs"');
             }
-            const apiPath = '/console/users/{userId}/prefs'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/prefs'.replace('{userId}', userId);
             const payload = {};
             if (typeof prefs !== 'undefined') {
                 payload['prefs'] = prefs;
@@ -5964,7 +5964,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/sessions'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -5989,7 +5989,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/sessions'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -6012,7 +6012,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/sessions'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/sessions'.replace('{userId}', userId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -6039,7 +6039,7 @@ class ConsoleUsers {
             if (typeof sessionId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "sessionId"');
             }
-            const apiPath = '/console/users/{userId}/sessions/{sessionId}'.replace('{userId}', userId).replace('{sessionId}', sessionId);
+            const apiPath = '/users/{userId}/sessions/{sessionId}'.replace('{userId}', userId).replace('{sessionId}', sessionId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -6066,7 +6066,7 @@ class ConsoleUsers {
             if (typeof status === 'undefined') {
                 throw new NuvixException('Missing required parameter: "status"');
             }
-            const apiPath = '/console/users/{userId}/status'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/status'.replace('{userId}', userId);
             const payload = {};
             if (typeof status !== 'undefined') {
                 payload['status'] = status;
@@ -6093,7 +6093,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/targets'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -6133,7 +6133,7 @@ class ConsoleUsers {
             if (typeof identifier === 'undefined') {
                 throw new NuvixException('Missing required parameter: "identifier"');
             }
-            const apiPath = '/console/users/{userId}/targets'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/targets'.replace('{userId}', userId);
             const payload = {};
             if (typeof targetId !== 'undefined') {
                 payload['targetId'] = targetId;
@@ -6175,7 +6175,7 @@ class ConsoleUsers {
             if (typeof targetId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "targetId"');
             }
-            const apiPath = '/console/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
+            const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -6205,7 +6205,7 @@ class ConsoleUsers {
             if (typeof targetId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "targetId"');
             }
-            const apiPath = '/console/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
+            const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
             if (typeof identifier !== 'undefined') {
                 payload['identifier'] = identifier;
@@ -6241,7 +6241,7 @@ class ConsoleUsers {
             if (typeof targetId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "targetId"');
             }
-            const apiPath = '/console/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
+            const apiPath = '/users/{userId}/targets/{targetId}'.replace('{userId}', userId).replace('{targetId}', targetId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -6267,7 +6267,7 @@ class ConsoleUsers {
             if (typeof userId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "userId"');
             }
-            const apiPath = '/console/users/{userId}/tokens'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/tokens'.replace('{userId}', userId);
             const payload = {};
             if (typeof length !== 'undefined') {
                 payload['length'] = length;
@@ -6300,7 +6300,7 @@ class ConsoleUsers {
             if (typeof emailVerification === 'undefined') {
                 throw new NuvixException('Missing required parameter: "emailVerification"');
             }
-            const apiPath = '/console/users/{userId}/verification'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/verification'.replace('{userId}', userId);
             const payload = {};
             if (typeof emailVerification !== 'undefined') {
                 payload['emailVerification'] = emailVerification;
@@ -6330,7 +6330,7 @@ class ConsoleUsers {
             if (typeof phoneVerification === 'undefined') {
                 throw new NuvixException('Missing required parameter: "phoneVerification"');
             }
-            const apiPath = '/console/users/{userId}/verification/phone'.replace('{userId}', userId);
+            const apiPath = '/users/{userId}/verification/phone'.replace('{userId}', userId);
             const payload = {};
             if (typeof phoneVerification !== 'undefined') {
                 payload['phoneVerification'] = phoneVerification;
@@ -12723,7 +12723,7 @@ class Organizations {
      */
     list(queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/organizations';
+            const apiPath = '/organizations';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -12762,7 +12762,7 @@ class Organizations {
             if (typeof billingPlan === 'undefined') {
                 throw new NuvixException('Missing required parameter: "billingPlan"');
             }
-            const apiPath = '/console/organizations';
+            const apiPath = '/organizations';
             const payload = {};
             if (typeof organizationId !== 'undefined') {
                 payload['organizationId'] = organizationId;
@@ -12800,7 +12800,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -12823,7 +12823,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -12846,7 +12846,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/aggregations'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/aggregations'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -12875,7 +12875,7 @@ class Organizations {
             if (typeof aggregationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "aggregationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/aggregations/{aggregationId}'.replace('{organizationId}', organizationId).replace('{aggregationId}', aggregationId);
+            const apiPath = '/organizations/{organizationId}/aggregations/{aggregationId}'.replace('{organizationId}', organizationId).replace('{aggregationId}', aggregationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -12901,7 +12901,7 @@ class Organizations {
             if (typeof billingAddressId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "billingAddressId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/billing-address'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/billing-address'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof billingAddressId !== 'undefined') {
                 payload['billingAddressId'] = billingAddressId;
@@ -12926,7 +12926,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/billing-address'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/billing-address'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -12952,7 +12952,7 @@ class Organizations {
             if (typeof billingAddressId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "billingAddressId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/billing-addresses/{billingAddressId}'.replace('{organizationId}', organizationId).replace('{billingAddressId}', billingAddressId);
+            const apiPath = '/organizations/{organizationId}/billing-addresses/{billingAddressId}'.replace('{organizationId}', organizationId).replace('{billingAddressId}', billingAddressId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -12978,7 +12978,7 @@ class Organizations {
             if (typeof billingEmail === 'undefined') {
                 throw new NuvixException('Missing required parameter: "billingEmail"');
             }
-            const apiPath = '/console/organizations/{organizationId}/billing-email'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/billing-email'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof billingEmail !== 'undefined') {
                 payload['billingEmail'] = billingEmail;
@@ -13008,7 +13008,7 @@ class Organizations {
             if (typeof budget === 'undefined') {
                 throw new NuvixException('Missing required parameter: "budget"');
             }
-            const apiPath = '/console/organizations/{organizationId}/budget'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/budget'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof budget !== 'undefined') {
                 payload['budget'] = budget;
@@ -13037,7 +13037,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/credits'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/credits'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -13066,7 +13066,7 @@ class Organizations {
             if (typeof couponId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "couponId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/credits'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/credits'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof couponId !== 'undefined') {
                 payload['couponId'] = couponId;
@@ -13095,7 +13095,7 @@ class Organizations {
             if (typeof creditId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "creditId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/credits/{creditId}'.replace('{organizationId}', organizationId).replace('{creditId}', creditId);
+            const apiPath = '/organizations/{organizationId}/credits/{creditId}'.replace('{organizationId}', organizationId).replace('{creditId}', creditId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13118,7 +13118,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/invoices'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/invoices'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -13147,7 +13147,7 @@ class Organizations {
             if (typeof invoiceId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "invoiceId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/invoices/{invoiceId}'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
+            const apiPath = '/organizations/{organizationId}/invoices/{invoiceId}'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13173,7 +13173,7 @@ class Organizations {
             if (typeof invoiceId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "invoiceId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/invoices/{invoiceId}/download'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
+            const apiPath = '/organizations/{organizationId}/invoices/{invoiceId}/download'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13203,7 +13203,7 @@ class Organizations {
             if (typeof paymentMethodId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "paymentMethodId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/invoices/{invoiceId}/payments'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
+            const apiPath = '/organizations/{organizationId}/invoices/{invoiceId}/payments'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
             const payload = {};
             if (typeof paymentMethodId !== 'undefined') {
                 payload['paymentMethodId'] = paymentMethodId;
@@ -13232,7 +13232,7 @@ class Organizations {
             if (typeof invoiceId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "invoiceId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/invoices/{invoiceId}/view'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
+            const apiPath = '/organizations/{organizationId}/invoices/{invoiceId}/view'.replace('{organizationId}', organizationId).replace('{invoiceId}', invoiceId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13258,7 +13258,7 @@ class Organizations {
             if (typeof paymentMethodId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "paymentMethodId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/payment-method'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/payment-method'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof paymentMethodId !== 'undefined') {
                 payload['paymentMethodId'] = paymentMethodId;
@@ -13283,7 +13283,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/payment-method'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/payment-method'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13309,7 +13309,7 @@ class Organizations {
             if (typeof paymentMethodId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "paymentMethodId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/payment-method/backup'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/payment-method/backup'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof paymentMethodId !== 'undefined') {
                 payload['paymentMethodId'] = paymentMethodId;
@@ -13334,7 +13334,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/payment-method/backup'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/payment-method/backup'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13360,7 +13360,7 @@ class Organizations {
             if (typeof paymentMethodId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "paymentMethodId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/payment-methods/{paymentMethodId}'.replace('{organizationId}', organizationId).replace('{paymentMethodId}', paymentMethodId);
+            const apiPath = '/organizations/{organizationId}/payment-methods/{paymentMethodId}'.replace('{organizationId}', organizationId).replace('{paymentMethodId}', paymentMethodId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13382,7 +13382,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/plan'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/plan'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13410,7 +13410,7 @@ class Organizations {
             if (typeof billingPlan === 'undefined') {
                 throw new NuvixException('Missing required parameter: "billingPlan"');
             }
-            const apiPath = '/console/organizations/{organizationId}/plan'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/plan'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof billingPlan !== 'undefined') {
                 payload['billingPlan'] = billingPlan;
@@ -13441,7 +13441,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/roles'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/roles'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13467,7 +13467,7 @@ class Organizations {
             if (typeof taxId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "taxId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/taxId'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/taxId'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof taxId !== 'undefined') {
                 payload['taxId'] = taxId;
@@ -13494,7 +13494,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/usage'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/usage'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof startDate !== 'undefined') {
                 payload['startDate'] = startDate;
@@ -13528,7 +13528,7 @@ class Organizations {
             if (typeof name === 'undefined') {
                 throw new NuvixException('Missing required parameter: "name"');
             }
-            const apiPath = '/console/organizations/{organizationId}'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -13556,7 +13556,7 @@ class Organizations {
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/memberships'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/memberships'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -13601,7 +13601,7 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
             if (typeof roles === 'undefined') {
                 throw new NuvixException('Missing required parameter: "roles"');
             }
-            const apiPath = '/console/organizations/{organizationId}/memberships'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/memberships'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof email !== 'undefined') {
                 payload['email'] = email;
@@ -13646,7 +13646,7 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
             if (typeof membershipId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "membershipId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+            const apiPath = '/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13678,7 +13678,7 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
             if (typeof roles === 'undefined') {
                 throw new NuvixException('Missing required parameter: "roles"');
             }
-            const apiPath = '/console/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+            const apiPath = '/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
             const payload = {};
             if (typeof roles !== 'undefined') {
                 payload['roles'] = roles;
@@ -13708,7 +13708,7 @@ Please note that to avoid a [Redirect Attack](https://github.com/OWASP/CheatShee
             if (typeof membershipId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "membershipId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+            const apiPath = '/organizations/{organizationId}/memberships/{membershipId}'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13746,7 +13746,7 @@ If the request is successful, a session for the user is automatically created.
             if (typeof secret === 'undefined') {
                 throw new NuvixException('Missing required parameter: "secret"');
             }
-            const apiPath = '/console/organizations/{organizationId}/memberships/{membershipId}/status'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
+            const apiPath = '/organizations/{organizationId}/memberships/{membershipId}/status'.replace('{organizationId}', organizationId).replace('{membershipId}', membershipId);
             const payload = {};
             if (typeof userId !== 'undefined') {
                 payload['userId'] = userId;
@@ -13775,7 +13775,7 @@ If the request is successful, a session for the user is automatically created.
             if (typeof organizationId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "organizationId"');
             }
-            const apiPath = '/console/organizations/{organizationId}/prefs'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/prefs'.replace('{organizationId}', organizationId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13802,7 +13802,7 @@ If the request is successful, a session for the user is automatically created.
             if (typeof prefs === 'undefined') {
                 throw new NuvixException('Missing required parameter: "prefs"');
             }
-            const apiPath = '/console/organizations/{organizationId}/prefs'.replace('{organizationId}', organizationId);
+            const apiPath = '/organizations/{organizationId}/prefs'.replace('{organizationId}', organizationId);
             const payload = {};
             if (typeof prefs !== 'undefined') {
                 payload['prefs'] = prefs;
@@ -13838,7 +13838,7 @@ class Project {
             if (typeof endDate === 'undefined') {
                 throw new NuvixException('Missing required parameter: "endDate"');
             }
-            const apiPath = '/console/project/usage';
+            const apiPath = '/project/usage';
             const payload = {};
             if (typeof startDate !== 'undefined') {
                 payload['startDate'] = startDate;
@@ -13866,7 +13866,7 @@ class Project {
      */
     listVariables() {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/project/variables';
+            const apiPath = '/project/variables';
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13893,7 +13893,7 @@ class Project {
             if (typeof value === 'undefined') {
                 throw new NuvixException('Missing required parameter: "value"');
             }
-            const apiPath = '/console/project/variables';
+            const apiPath = '/project/variables';
             const payload = {};
             if (typeof key !== 'undefined') {
                 payload['key'] = key;
@@ -13922,7 +13922,7 @@ class Project {
             if (typeof variableId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "variableId"');
             }
-            const apiPath = '/console/project/variables/{variableId}'.replace('{variableId}', variableId);
+            const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -13950,7 +13950,7 @@ class Project {
             if (typeof key === 'undefined') {
                 throw new NuvixException('Missing required parameter: "key"');
             }
-            const apiPath = '/console/project/variables/{variableId}'.replace('{variableId}', variableId);
+            const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
             if (typeof key !== 'undefined') {
                 payload['key'] = key;
@@ -13979,7 +13979,7 @@ class Project {
             if (typeof variableId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "variableId"');
             }
-            const apiPath = '/console/project/variables/{variableId}'.replace('{variableId}', variableId);
+            const apiPath = '/project/variables/{variableId}'.replace('{variableId}', variableId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14005,7 +14005,7 @@ class Projects {
      */
     list(queries, search) {
         return __awaiter(this, void 0, void 0, function* () {
-            const apiPath = '/console/projects';
+            const apiPath = '/projects';
             const payload = {};
             if (typeof queries !== 'undefined') {
                 payload['queries'] = queries;
@@ -14051,7 +14051,7 @@ class Projects {
             if (typeof teamId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "teamId"');
             }
-            const apiPath = '/console/projects';
+            const apiPath = '/projects';
             const payload = {};
             if (typeof projectId !== 'undefined') {
                 payload['projectId'] = projectId;
@@ -14112,7 +14112,7 @@ class Projects {
             if (typeof projectId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "projectId"');
             }
-            const apiPath = '/console/projects/{projectId}'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14147,7 +14147,7 @@ class Projects {
             if (typeof name === 'undefined') {
                 throw new NuvixException('Missing required parameter: "name"');
             }
-            const apiPath = '/console/projects/{projectId}'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -14199,7 +14199,7 @@ class Projects {
             if (typeof projectId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "projectId"');
             }
-            const apiPath = '/console/projects/{projectId}'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14229,7 +14229,7 @@ class Projects {
             if (typeof status === 'undefined') {
                 throw new NuvixException('Missing required parameter: "status"');
             }
-            const apiPath = '/console/projects/{projectId}/api'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/api'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof api !== 'undefined') {
                 payload['api'] = api;
@@ -14261,7 +14261,7 @@ class Projects {
             if (typeof status === 'undefined') {
                 throw new NuvixException('Missing required parameter: "status"');
             }
-            const apiPath = '/console/projects/{projectId}/api/all'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/api/all'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof status !== 'undefined') {
                 payload['status'] = status;
@@ -14290,7 +14290,7 @@ class Projects {
             if (typeof duration === 'undefined') {
                 throw new NuvixException('Missing required parameter: "duration"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/duration'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/duration'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof duration !== 'undefined') {
                 payload['duration'] = duration;
@@ -14319,7 +14319,7 @@ class Projects {
             if (typeof limit === 'undefined') {
                 throw new NuvixException('Missing required parameter: "limit"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/limit'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/limit'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof limit !== 'undefined') {
                 payload['limit'] = limit;
@@ -14348,7 +14348,7 @@ class Projects {
             if (typeof limit === 'undefined') {
                 throw new NuvixException('Missing required parameter: "limit"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/max-sessions'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/max-sessions'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof limit !== 'undefined') {
                 payload['limit'] = limit;
@@ -14385,7 +14385,7 @@ class Projects {
             if (typeof mfa === 'undefined') {
                 throw new NuvixException('Missing required parameter: "mfa"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/memberships-privacy'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/memberships-privacy'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof userName !== 'undefined') {
                 payload['userName'] = userName;
@@ -14420,7 +14420,7 @@ class Projects {
             if (typeof numbers === 'undefined') {
                 throw new NuvixException('Missing required parameter: "numbers"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/mock-numbers'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/mock-numbers'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof numbers !== 'undefined') {
                 payload['numbers'] = numbers;
@@ -14449,7 +14449,7 @@ class Projects {
             if (typeof enabled === 'undefined') {
                 throw new NuvixException('Missing required parameter: "enabled"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/password-dictionary'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/password-dictionary'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof enabled !== 'undefined') {
                 payload['enabled'] = enabled;
@@ -14478,7 +14478,7 @@ class Projects {
             if (typeof limit === 'undefined') {
                 throw new NuvixException('Missing required parameter: "limit"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/password-history'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/password-history'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof limit !== 'undefined') {
                 payload['limit'] = limit;
@@ -14507,7 +14507,7 @@ class Projects {
             if (typeof enabled === 'undefined') {
                 throw new NuvixException('Missing required parameter: "enabled"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/personal-data'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/personal-data'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof enabled !== 'undefined') {
                 payload['enabled'] = enabled;
@@ -14536,7 +14536,7 @@ class Projects {
             if (typeof alerts === 'undefined') {
                 throw new NuvixException('Missing required parameter: "alerts"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/session-alerts'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/auth/session-alerts'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof alerts !== 'undefined') {
                 payload['alerts'] = alerts;
@@ -14569,7 +14569,7 @@ class Projects {
             if (typeof status === 'undefined') {
                 throw new NuvixException('Missing required parameter: "status"');
             }
-            const apiPath = '/console/projects/{projectId}/auth/{method}'.replace('{projectId}', projectId).replace('{method}', method);
+            const apiPath = '/projects/{projectId}/auth/{method}'.replace('{projectId}', projectId).replace('{method}', method);
             const payload = {};
             if (typeof status !== 'undefined') {
                 payload['status'] = status;
@@ -14599,7 +14599,7 @@ class Projects {
             if (typeof scopes === 'undefined') {
                 throw new NuvixException('Missing required parameter: "scopes"');
             }
-            const apiPath = '/console/projects/{projectId}/jwts'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/jwts'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof scopes !== 'undefined') {
                 payload['scopes'] = scopes;
@@ -14627,7 +14627,7 @@ class Projects {
             if (typeof projectId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "projectId"');
             }
-            const apiPath = '/console/projects/{projectId}/keys'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14658,7 +14658,7 @@ class Projects {
             if (typeof scopes === 'undefined') {
                 throw new NuvixException('Missing required parameter: "scopes"');
             }
-            const apiPath = '/console/projects/{projectId}/keys'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -14693,7 +14693,7 @@ class Projects {
             if (typeof keyId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "keyId"');
             }
-            const apiPath = '/console/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
+            const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14728,7 +14728,7 @@ class Projects {
             if (typeof scopes === 'undefined') {
                 throw new NuvixException('Missing required parameter: "scopes"');
             }
-            const apiPath = '/console/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
+            const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -14763,7 +14763,7 @@ class Projects {
             if (typeof keyId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "keyId"');
             }
-            const apiPath = '/console/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
+            const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14792,7 +14792,7 @@ class Projects {
             if (typeof provider === 'undefined') {
                 throw new NuvixException('Missing required parameter: "provider"');
             }
-            const apiPath = '/console/projects/{projectId}/oauth2'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/oauth2'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof provider !== 'undefined') {
                 payload['provider'] = provider;
@@ -14826,7 +14826,7 @@ class Projects {
             if (typeof projectId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "projectId"');
             }
-            const apiPath = '/console/projects/{projectId}/platforms'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14859,7 +14859,7 @@ class Projects {
             if (typeof name === 'undefined') {
                 throw new NuvixException('Missing required parameter: "name"');
             }
-            const apiPath = '/console/projects/{projectId}/platforms'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof type !== 'undefined') {
                 payload['type'] = type;
@@ -14900,7 +14900,7 @@ class Projects {
             if (typeof platformId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "platformId"');
             }
-            const apiPath = '/console/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
+            const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -14933,7 +14933,7 @@ class Projects {
             if (typeof name === 'undefined') {
                 throw new NuvixException('Missing required parameter: "name"');
             }
-            const apiPath = '/console/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
+            const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -14971,7 +14971,7 @@ class Projects {
             if (typeof platformId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "platformId"');
             }
-            const apiPath = '/console/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
+            const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15001,7 +15001,7 @@ class Projects {
             if (typeof status === 'undefined') {
                 throw new NuvixException('Missing required parameter: "status"');
             }
-            const apiPath = '/console/projects/{projectId}/service'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/service'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof service !== 'undefined') {
                 payload['service'] = service;
@@ -15033,7 +15033,7 @@ class Projects {
             if (typeof status === 'undefined') {
                 throw new NuvixException('Missing required parameter: "status"');
             }
-            const apiPath = '/console/projects/{projectId}/service/all'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/service/all'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof status !== 'undefined') {
                 payload['status'] = status;
@@ -15070,7 +15070,7 @@ class Projects {
             if (typeof enabled === 'undefined') {
                 throw new NuvixException('Missing required parameter: "enabled"');
             }
-            const apiPath = '/console/projects/{projectId}/smtp'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/smtp'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof enabled !== 'undefined') {
                 payload['enabled'] = enabled;
@@ -15140,7 +15140,7 @@ class Projects {
             if (typeof host === 'undefined') {
                 throw new NuvixException('Missing required parameter: "host"');
             }
-            const apiPath = '/console/projects/{projectId}/smtp/tests'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/smtp/tests'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof emails !== 'undefined') {
                 payload['emails'] = emails;
@@ -15193,7 +15193,7 @@ class Projects {
             if (typeof teamId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "teamId"');
             }
-            const apiPath = '/console/projects/{projectId}/team'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/team'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof teamId !== 'undefined') {
                 payload['teamId'] = teamId;
@@ -15226,7 +15226,7 @@ class Projects {
             if (typeof locale === 'undefined') {
                 throw new NuvixException('Missing required parameter: "locale"');
             }
-            const apiPath = '/console/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+            const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15267,7 +15267,7 @@ class Projects {
             if (typeof message === 'undefined') {
                 throw new NuvixException('Missing required parameter: "message"');
             }
-            const apiPath = '/console/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+            const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
             if (typeof subject !== 'undefined') {
                 payload['subject'] = subject;
@@ -15312,7 +15312,7 @@ class Projects {
             if (typeof locale === 'undefined') {
                 throw new NuvixException('Missing required parameter: "locale"');
             }
-            const apiPath = '/console/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+            const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15342,7 +15342,7 @@ class Projects {
             if (typeof locale === 'undefined') {
                 throw new NuvixException('Missing required parameter: "locale"');
             }
-            const apiPath = '/console/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+            const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15376,7 +15376,7 @@ class Projects {
             if (typeof message === 'undefined') {
                 throw new NuvixException('Missing required parameter: "message"');
             }
-            const apiPath = '/console/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+            const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
             if (typeof message !== 'undefined') {
                 payload['message'] = message;
@@ -15409,7 +15409,7 @@ class Projects {
             if (typeof locale === 'undefined') {
                 throw new NuvixException('Missing required parameter: "locale"');
             }
-            const apiPath = '/console/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+            const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15431,7 +15431,7 @@ class Projects {
             if (typeof projectId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "projectId"');
             }
-            const apiPath = '/console/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15472,7 +15472,7 @@ class Projects {
             if (typeof security === 'undefined') {
                 throw new NuvixException('Missing required parameter: "security"');
             }
-            const apiPath = '/console/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
+            const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -15519,7 +15519,7 @@ class Projects {
             if (typeof webhookId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "webhookId"');
             }
-            const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+            const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15564,7 +15564,7 @@ class Projects {
             if (typeof security === 'undefined') {
                 throw new NuvixException('Missing required parameter: "security"');
             }
-            const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+            const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
             if (typeof name !== 'undefined') {
                 payload['name'] = name;
@@ -15611,7 +15611,7 @@ class Projects {
             if (typeof webhookId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "webhookId"');
             }
-            const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+            const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {
@@ -15637,7 +15637,7 @@ class Projects {
             if (typeof webhookId === 'undefined') {
                 throw new NuvixException('Missing required parameter: "webhookId"');
             }
-            const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}/signature'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+            const apiPath = '/projects/{projectId}/webhooks/{webhookId}/signature'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
             const payload = {};
             const uri = new URL(this.client.config.endpoint + apiPath);
             const apiHeaders = {

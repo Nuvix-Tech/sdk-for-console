@@ -30,7 +30,7 @@ export class Projects {
      * @returns {Promise<Models.ProjectList>}
      */
     async list(queries?: string[], search?: string): Promise<Models.ProjectList> {
-        const apiPath = '/console/projects';
+        const apiPath = '/projects';
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -82,7 +82,7 @@ export class Projects {
         if (typeof teamId === 'undefined') {
             throw new NuvixException('Missing required parameter: "teamId"');
         }
-        const apiPath = '/console/projects';
+        const apiPath = '/projects';
         const payload: Payload = {};
         if (typeof projectId !== 'undefined') {
             payload['projectId'] = projectId;
@@ -149,7 +149,7 @@ export class Projects {
         if (typeof projectId === 'undefined') {
             throw new NuvixException('Missing required parameter: "projectId"');
         }
-        const apiPath = '/console/projects/{projectId}'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -190,7 +190,7 @@ export class Projects {
         if (typeof name === 'undefined') {
             throw new NuvixException('Missing required parameter: "name"');
         }
-        const apiPath = '/console/projects/{projectId}'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -248,7 +248,7 @@ export class Projects {
         if (typeof projectId === 'undefined') {
             throw new NuvixException('Missing required parameter: "projectId"');
         }
-        const apiPath = '/console/projects/{projectId}'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}'.replace('{projectId}', projectId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -284,7 +284,7 @@ export class Projects {
         if (typeof status === 'undefined') {
             throw new NuvixException('Missing required parameter: "status"');
         }
-        const apiPath = '/console/projects/{projectId}/api'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/api'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof api !== 'undefined') {
             payload['api'] = api;
@@ -322,7 +322,7 @@ export class Projects {
         if (typeof status === 'undefined') {
             throw new NuvixException('Missing required parameter: "status"');
         }
-        const apiPath = '/console/projects/{projectId}/api/all'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/api/all'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof status !== 'undefined') {
             payload['status'] = status;
@@ -357,7 +357,7 @@ export class Projects {
         if (typeof duration === 'undefined') {
             throw new NuvixException('Missing required parameter: "duration"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/duration'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/duration'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof duration !== 'undefined') {
             payload['duration'] = duration;
@@ -392,7 +392,7 @@ export class Projects {
         if (typeof limit === 'undefined') {
             throw new NuvixException('Missing required parameter: "limit"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/limit'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/limit'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof limit !== 'undefined') {
             payload['limit'] = limit;
@@ -427,7 +427,7 @@ export class Projects {
         if (typeof limit === 'undefined') {
             throw new NuvixException('Missing required parameter: "limit"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/max-sessions'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/max-sessions'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof limit !== 'undefined') {
             payload['limit'] = limit;
@@ -470,7 +470,7 @@ export class Projects {
         if (typeof mfa === 'undefined') {
             throw new NuvixException('Missing required parameter: "mfa"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/memberships-privacy'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/memberships-privacy'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof userName !== 'undefined') {
             payload['userName'] = userName;
@@ -511,7 +511,7 @@ export class Projects {
         if (typeof numbers === 'undefined') {
             throw new NuvixException('Missing required parameter: "numbers"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/mock-numbers'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/mock-numbers'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof numbers !== 'undefined') {
             payload['numbers'] = numbers;
@@ -546,7 +546,7 @@ export class Projects {
         if (typeof enabled === 'undefined') {
             throw new NuvixException('Missing required parameter: "enabled"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/password-dictionary'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/password-dictionary'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof enabled !== 'undefined') {
             payload['enabled'] = enabled;
@@ -581,7 +581,7 @@ export class Projects {
         if (typeof limit === 'undefined') {
             throw new NuvixException('Missing required parameter: "limit"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/password-history'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/password-history'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof limit !== 'undefined') {
             payload['limit'] = limit;
@@ -616,7 +616,7 @@ export class Projects {
         if (typeof enabled === 'undefined') {
             throw new NuvixException('Missing required parameter: "enabled"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/personal-data'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/personal-data'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof enabled !== 'undefined') {
             payload['enabled'] = enabled;
@@ -651,7 +651,7 @@ export class Projects {
         if (typeof alerts === 'undefined') {
             throw new NuvixException('Missing required parameter: "alerts"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/session-alerts'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/auth/session-alerts'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof alerts !== 'undefined') {
             payload['alerts'] = alerts;
@@ -690,7 +690,7 @@ export class Projects {
         if (typeof status === 'undefined') {
             throw new NuvixException('Missing required parameter: "status"');
         }
-        const apiPath = '/console/projects/{projectId}/auth/{method}'.replace('{projectId}', projectId).replace('{method}', method);
+        const apiPath = '/projects/{projectId}/auth/{method}'.replace('{projectId}', projectId).replace('{method}', method);
         const payload: Payload = {};
         if (typeof status !== 'undefined') {
             payload['status'] = status;
@@ -726,7 +726,7 @@ export class Projects {
         if (typeof scopes === 'undefined') {
             throw new NuvixException('Missing required parameter: "scopes"');
         }
-        const apiPath = '/console/projects/{projectId}/jwts'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/jwts'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof scopes !== 'undefined') {
             payload['scopes'] = scopes;
@@ -760,7 +760,7 @@ export class Projects {
         if (typeof projectId === 'undefined') {
             throw new NuvixException('Missing required parameter: "projectId"');
         }
-        const apiPath = '/console/projects/{projectId}/keys'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -797,7 +797,7 @@ export class Projects {
         if (typeof scopes === 'undefined') {
             throw new NuvixException('Missing required parameter: "scopes"');
         }
-        const apiPath = '/console/projects/{projectId}/keys'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/keys'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -838,7 +838,7 @@ export class Projects {
         if (typeof keyId === 'undefined') {
             throw new NuvixException('Missing required parameter: "keyId"');
         }
-        const apiPath = '/console/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
+        const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -879,7 +879,7 @@ export class Projects {
         if (typeof scopes === 'undefined') {
             throw new NuvixException('Missing required parameter: "scopes"');
         }
-        const apiPath = '/console/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
+        const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -920,7 +920,7 @@ export class Projects {
         if (typeof keyId === 'undefined') {
             throw new NuvixException('Missing required parameter: "keyId"');
         }
-        const apiPath = '/console/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
+        const apiPath = '/projects/{projectId}/keys/{keyId}'.replace('{projectId}', projectId).replace('{keyId}', keyId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -955,7 +955,7 @@ export class Projects {
         if (typeof provider === 'undefined') {
             throw new NuvixException('Missing required parameter: "provider"');
         }
-        const apiPath = '/console/projects/{projectId}/oauth2'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/oauth2'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof provider !== 'undefined') {
             payload['provider'] = provider;
@@ -995,7 +995,7 @@ export class Projects {
         if (typeof projectId === 'undefined') {
             throw new NuvixException('Missing required parameter: "projectId"');
         }
-        const apiPath = '/console/projects/{projectId}/platforms'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1034,7 +1034,7 @@ export class Projects {
         if (typeof name === 'undefined') {
             throw new NuvixException('Missing required parameter: "name"');
         }
-        const apiPath = '/console/projects/{projectId}/platforms'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/platforms'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof type !== 'undefined') {
             payload['type'] = type;
@@ -1081,7 +1081,7 @@ export class Projects {
         if (typeof platformId === 'undefined') {
             throw new NuvixException('Missing required parameter: "platformId"');
         }
-        const apiPath = '/console/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
+        const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1120,7 +1120,7 @@ export class Projects {
         if (typeof name === 'undefined') {
             throw new NuvixException('Missing required parameter: "name"');
         }
-        const apiPath = '/console/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
+        const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -1164,7 +1164,7 @@ export class Projects {
         if (typeof platformId === 'undefined') {
             throw new NuvixException('Missing required parameter: "platformId"');
         }
-        const apiPath = '/console/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
+        const apiPath = '/projects/{projectId}/platforms/{platformId}'.replace('{projectId}', projectId).replace('{platformId}', platformId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1200,7 +1200,7 @@ export class Projects {
         if (typeof status === 'undefined') {
             throw new NuvixException('Missing required parameter: "status"');
         }
-        const apiPath = '/console/projects/{projectId}/service'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/service'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof service !== 'undefined') {
             payload['service'] = service;
@@ -1238,7 +1238,7 @@ export class Projects {
         if (typeof status === 'undefined') {
             throw new NuvixException('Missing required parameter: "status"');
         }
-        const apiPath = '/console/projects/{projectId}/service/all'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/service/all'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof status !== 'undefined') {
             payload['status'] = status;
@@ -1281,7 +1281,7 @@ export class Projects {
         if (typeof enabled === 'undefined') {
             throw new NuvixException('Missing required parameter: "enabled"');
         }
-        const apiPath = '/console/projects/{projectId}/smtp'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/smtp'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof enabled !== 'undefined') {
             payload['enabled'] = enabled;
@@ -1357,7 +1357,7 @@ export class Projects {
         if (typeof host === 'undefined') {
             throw new NuvixException('Missing required parameter: "host"');
         }
-        const apiPath = '/console/projects/{projectId}/smtp/tests'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/smtp/tests'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof emails !== 'undefined') {
             payload['emails'] = emails;
@@ -1416,7 +1416,7 @@ export class Projects {
         if (typeof teamId === 'undefined') {
             throw new NuvixException('Missing required parameter: "teamId"');
         }
-        const apiPath = '/console/projects/{projectId}/team'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/team'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof teamId !== 'undefined') {
             payload['teamId'] = teamId;
@@ -1455,7 +1455,7 @@ export class Projects {
         if (typeof locale === 'undefined') {
             throw new NuvixException('Missing required parameter: "locale"');
         }
-        const apiPath = '/console/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+        const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1502,7 +1502,7 @@ export class Projects {
         if (typeof message === 'undefined') {
             throw new NuvixException('Missing required parameter: "message"');
         }
-        const apiPath = '/console/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+        const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
         if (typeof subject !== 'undefined') {
             payload['subject'] = subject;
@@ -1553,7 +1553,7 @@ export class Projects {
         if (typeof locale === 'undefined') {
             throw new NuvixException('Missing required parameter: "locale"');
         }
-        const apiPath = '/console/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+        const apiPath = '/projects/{projectId}/templates/email/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1589,7 +1589,7 @@ export class Projects {
         if (typeof locale === 'undefined') {
             throw new NuvixException('Missing required parameter: "locale"');
         }
-        const apiPath = '/console/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+        const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1629,7 +1629,7 @@ export class Projects {
         if (typeof message === 'undefined') {
             throw new NuvixException('Missing required parameter: "message"');
         }
-        const apiPath = '/console/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+        const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
         if (typeof message !== 'undefined') {
             payload['message'] = message;
@@ -1668,7 +1668,7 @@ export class Projects {
         if (typeof locale === 'undefined') {
             throw new NuvixException('Missing required parameter: "locale"');
         }
-        const apiPath = '/console/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
+        const apiPath = '/projects/{projectId}/templates/sms/{type}/{locale}'.replace('{projectId}', projectId).replace('{type}', type).replace('{locale}', locale);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1696,7 +1696,7 @@ export class Projects {
         if (typeof projectId === 'undefined') {
             throw new NuvixException('Missing required parameter: "projectId"');
         }
-        const apiPath = '/console/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1743,7 +1743,7 @@ export class Projects {
         if (typeof security === 'undefined') {
             throw new NuvixException('Missing required parameter: "security"');
         }
-        const apiPath = '/console/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
+        const apiPath = '/projects/{projectId}/webhooks'.replace('{projectId}', projectId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -1796,7 +1796,7 @@ export class Projects {
         if (typeof webhookId === 'undefined') {
             throw new NuvixException('Missing required parameter: "webhookId"');
         }
-        const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+        const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1847,7 +1847,7 @@ export class Projects {
         if (typeof security === 'undefined') {
             throw new NuvixException('Missing required parameter: "security"');
         }
-        const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+        const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -1900,7 +1900,7 @@ export class Projects {
         if (typeof webhookId === 'undefined') {
             throw new NuvixException('Missing required parameter: "webhookId"');
         }
-        const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+        const apiPath = '/projects/{projectId}/webhooks/{webhookId}'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1932,7 +1932,7 @@ export class Projects {
         if (typeof webhookId === 'undefined') {
             throw new NuvixException('Missing required parameter: "webhookId"');
         }
-        const apiPath = '/console/projects/{projectId}/webhooks/{webhookId}/signature'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
+        const apiPath = '/projects/{projectId}/webhooks/{webhookId}/signature'.replace('{projectId}', projectId).replace('{webhookId}', webhookId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
