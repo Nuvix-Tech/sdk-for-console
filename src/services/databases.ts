@@ -24,7 +24,7 @@ export class Databases {
      * @returns {Promise<Models.DatabaseList>}
      */
     async list(queries?: string[], search?: string): Promise<Models.DatabaseList> {
-        const apiPath = '/databases';
+        const apiPath = '/schemas';
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -65,7 +65,7 @@ export class Databases {
         if (typeof name === 'undefined') {
             throw new NuvixException('Missing required parameter: "name"');
         }
-        const apiPath = '/databases';
+        const apiPath = '/schemas';
         const payload: Payload = {};
         if (typeof databaseId !== 'undefined') {
             payload['databaseId'] = databaseId;
@@ -99,7 +99,7 @@ export class Databases {
      * @returns {Promise<Models.UsageDatabases>}
      */
     async getUsage(range?: DatabaseUsageRange): Promise<Models.UsageDatabases> {
-        const apiPath = '/databases/usage';
+        const apiPath = '/schemas/usage';
         const payload: Payload = {};
         if (typeof range !== 'undefined') {
             payload['range'] = range;
@@ -131,7 +131,7 @@ export class Databases {
         if (typeof databaseId === 'undefined') {
             throw new NuvixException('Missing required parameter: "databaseId"');
         }
-        const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
+        const apiPath = '/schemas/{databaseId}'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -165,7 +165,7 @@ export class Databases {
         if (typeof name === 'undefined') {
             throw new NuvixException('Missing required parameter: "name"');
         }
-        const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
+        const apiPath = '/schemas/{databaseId}'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -200,7 +200,7 @@ export class Databases {
         if (typeof databaseId === 'undefined') {
             throw new NuvixException('Missing required parameter: "databaseId"');
         }
-        const apiPath = '/databases/{databaseId}'.replace('{databaseId}', databaseId);
+        const apiPath = '/schemas/{databaseId}'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -231,7 +231,7 @@ export class Databases {
         if (typeof databaseId === 'undefined') {
             throw new NuvixException('Missing required parameter: "databaseId"');
         }
-        const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
+        const apiPath = '/schemas/{databaseId}/collections'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -256,7 +256,7 @@ export class Databases {
     /**
      * Create collection
      *
-     * Create a new Collection. Before using this route, you should create a new database resource using either a [server integration](https://nuvix.io/docs/server/databases#databasesCreateCollection) API or directly from your database console.
+     * Create a new Collection. Before using this route, you should create a new database resource using either a [server integration](https://nuvix.io/docs/server/schemas#databasesCreateCollection) API or directly from your database console.
      *
      * @param {string} databaseId
      * @param {string} collectionId
@@ -277,7 +277,7 @@ export class Databases {
         if (typeof name === 'undefined') {
             throw new NuvixException('Missing required parameter: "name"');
         }
-        const apiPath = '/databases/{databaseId}/collections'.replace('{databaseId}', databaseId);
+        const apiPath = '/schemas/{databaseId}/collections'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
         if (typeof collectionId !== 'undefined') {
             payload['collectionId'] = collectionId;
@@ -325,7 +325,7 @@ export class Databases {
         if (typeof collectionId === 'undefined') {
             throw new NuvixException('Missing required parameter: "collectionId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -365,7 +365,7 @@ export class Databases {
         if (typeof name === 'undefined') {
             throw new NuvixException('Missing required parameter: "name"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof name !== 'undefined') {
             payload['name'] = name;
@@ -410,7 +410,7 @@ export class Databases {
         if (typeof collectionId === 'undefined') {
             throw new NuvixException('Missing required parameter: "collectionId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -444,7 +444,7 @@ export class Databases {
         if (typeof collectionId === 'undefined') {
             throw new NuvixException('Missing required parameter: "collectionId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -491,7 +491,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/boolean'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -549,7 +549,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/boolean/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/boolean/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -601,7 +601,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/datetime'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -659,7 +659,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/datetime/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/datetime/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -712,7 +712,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/email'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -771,7 +771,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/email/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/email/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -828,7 +828,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/enum'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -894,7 +894,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/enum/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/enum/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof elements !== 'undefined') {
             payload['elements'] = elements;
@@ -952,7 +952,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/float'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -1025,7 +1025,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/float/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/float/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -1086,7 +1086,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/integer'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -1159,7 +1159,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/integer/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/integer/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -1218,7 +1218,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/ip'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -1277,7 +1277,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/ip/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/ip/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -1305,7 +1305,7 @@ export class Databases {
     /**
      * Create relationship attribute
      *
-     * Create relationship attribute. [Learn more about relationship attributes](https://nuvix.io/docs/databases-relationships#relationship-attributes).
+     * Create relationship attribute. [Learn more about relationship attributes](https://nuvix.io/docs/schemas-relationships#relationship-attributes).
 
      *
      * @param {string} databaseId
@@ -1332,7 +1332,7 @@ export class Databases {
         if (typeof type === 'undefined') {
             throw new NuvixException('Missing required parameter: "type"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof relatedCollectionId !== 'undefined') {
             payload['relatedCollectionId'] = relatedCollectionId;
@@ -1399,7 +1399,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/string'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -1465,7 +1465,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/string/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/string/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -1521,7 +1521,7 @@ export class Databases {
         if (typeof required === 'undefined') {
             throw new NuvixException('Missing required parameter: "required"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/url'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -1580,7 +1580,7 @@ export class Databases {
         if (typeof xdefault === 'undefined') {
             throw new NuvixException('Missing required parameter: "xdefault"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/url/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/url/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof required !== 'undefined') {
             payload['required'] = required;
@@ -1626,7 +1626,7 @@ export class Databases {
         if (typeof key === 'undefined') {
             throw new NuvixException('Missing required parameter: "key"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1663,7 +1663,7 @@ export class Databases {
         if (typeof key === 'undefined') {
             throw new NuvixException('Missing required parameter: "key"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1682,7 +1682,7 @@ export class Databases {
     /**
      * Update relationship attribute
      *
-     * Update relationship attribute. [Learn more about relationship attributes](https://nuvix.io/docs/databases-relationships#relationship-attributes).
+     * Update relationship attribute. [Learn more about relationship attributes](https://nuvix.io/docs/schemas-relationships#relationship-attributes).
 
      *
      * @param {string} databaseId
@@ -1703,7 +1703,7 @@ export class Databases {
         if (typeof key === 'undefined') {
             throw new NuvixException('Missing required parameter: "key"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/attributes/{key}/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/attributes/{key}/relationship'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         if (typeof onDelete !== 'undefined') {
             payload['onDelete'] = onDelete;
@@ -1743,7 +1743,7 @@ export class Databases {
         if (typeof collectionId === 'undefined') {
             throw new NuvixException('Missing required parameter: "collectionId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -1765,7 +1765,7 @@ export class Databases {
     /**
      * Create document
      *
-     * Create a new Document. Before using this route, you should create a new collection resource using either a [server integration](https://nuvix.io/docs/server/databases#databasesCreateCollection) API or directly from your database console.
+     * Create a new Document. Before using this route, you should create a new collection resource using either a [server integration](https://nuvix.io/docs/server/schemas#databasesCreateCollection) API or directly from your database console.
      *
      * @param {string} databaseId
      * @param {string} collectionId
@@ -1788,7 +1788,7 @@ export class Databases {
         if (typeof data === 'undefined') {
             throw new NuvixException('Missing required parameter: "data"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/documents'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof documentId !== 'undefined') {
             payload['documentId'] = documentId;
@@ -1835,7 +1835,7 @@ export class Databases {
         if (typeof documentId === 'undefined') {
             throw new NuvixException('Missing required parameter: "documentId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -1877,7 +1877,7 @@ export class Databases {
         if (typeof documentId === 'undefined') {
             throw new NuvixException('Missing required parameter: "documentId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
         if (typeof data !== 'undefined') {
             payload['data'] = data;
@@ -1920,7 +1920,7 @@ export class Databases {
         if (typeof documentId === 'undefined') {
             throw new NuvixException('Missing required parameter: "documentId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/documents/{documentId}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -1958,7 +1958,7 @@ export class Databases {
         if (typeof documentId === 'undefined') {
             throw new NuvixException('Missing required parameter: "documentId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/documents/{documentId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/documents/{documentId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{documentId}', documentId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -1995,7 +1995,7 @@ export class Databases {
         if (typeof collectionId === 'undefined') {
             throw new NuvixException('Missing required parameter: "collectionId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -2045,7 +2045,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
         if (typeof attributes === 'undefined') {
             throw new NuvixException('Missing required parameter: "attributes"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/indexes'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof key !== 'undefined') {
             payload['key'] = key;
@@ -2094,7 +2094,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
         if (typeof key === 'undefined') {
             throw new NuvixException('Missing required parameter: "key"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -2131,7 +2131,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
         if (typeof key === 'undefined') {
             throw new NuvixException('Missing required parameter: "key"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/indexes/{key}'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId).replace('{key}', key);
         const payload: Payload = {};
         const uri = new URL(this.client.config.endpoint + apiPath);
 
@@ -2165,7 +2165,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
         if (typeof collectionId === 'undefined') {
             throw new NuvixException('Missing required parameter: "collectionId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/logs'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -2201,7 +2201,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
         if (typeof collectionId === 'undefined') {
             throw new NuvixException('Missing required parameter: "collectionId"');
         }
-        const apiPath = '/databases/{databaseId}/collections/{collectionId}/usage'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
+        const apiPath = '/schemas/{databaseId}/collections/{collectionId}/usage'.replace('{databaseId}', databaseId).replace('{collectionId}', collectionId);
         const payload: Payload = {};
         if (typeof range !== 'undefined') {
             payload['range'] = range;
@@ -2234,7 +2234,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
         if (typeof databaseId === 'undefined') {
             throw new NuvixException('Missing required parameter: "databaseId"');
         }
-        const apiPath = '/databases/{databaseId}/logs'.replace('{databaseId}', databaseId);
+        const apiPath = '/schemas/{databaseId}/logs'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
         if (typeof queries !== 'undefined') {
             payload['queries'] = queries;
@@ -2266,7 +2266,7 @@ Attributes can be `key`, `fulltext`, and `unique`.
         if (typeof databaseId === 'undefined') {
             throw new NuvixException('Missing required parameter: "databaseId"');
         }
-        const apiPath = '/databases/{databaseId}/usage'.replace('{databaseId}', databaseId);
+        const apiPath = '/schemas/{databaseId}/usage'.replace('{databaseId}', databaseId);
         const payload: Payload = {};
         if (typeof range !== 'undefined') {
             payload['range'] = range;

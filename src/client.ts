@@ -290,7 +290,7 @@ class Client {
    * Holds configuration such as project.
    */
   config = {
-    endpoint: 'http://localhost:3000/v1',
+    endpoint: 'http://api.nuvix.in/v1',
     endpointRealtime: '',
     project: '',
     key: '',
