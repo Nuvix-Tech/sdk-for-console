@@ -1,7 +1,7 @@
 {
   "name": "@nuvix/console",
   "description": "Nuvix is a open-source self-hosted backend server.",
-  "version": "0.0.5-alpha.2",
+  "version": "0.0.5-alpha.4",
   "main": "dist/cjs/sdk.js",
   "type": "module",
   "exports": {
